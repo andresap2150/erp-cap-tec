@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "awesome-apress-pwa-11a03"
+  },
+  "targets": {
+    "awesome-apress-pwa-11a03": {
+      "hosting": {
+        "erp-cap-tec": [
+          "awesome-apress-pwa-11a03"
+        ]
+      }
+    }
+  }
+}
