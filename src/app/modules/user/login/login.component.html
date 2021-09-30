@@ -1,0 +1,9 @@
+<div class="form-container">
+  <h2>Iniciar Sesión</h2>
+  <form #formData='ngForm' (ngSubmit)='onSubmit(formData)'>
+    <input type="text" placeholder="Email address" name="email" class="input-txt" ngModel required>
+    <input type="password" placeholder="Password"  name="password" class="input-txt" ngModel required>
+    <button type="submit" [disabled]="!formData.valid" class="auth-btn">Iniciar</button>
+  </form>
+  <a routerLink="/signup" routerLinkActive="active" class="create-account-txt">Crear Cuenta</a>
+</div>
