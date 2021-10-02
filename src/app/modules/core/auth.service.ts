@@ -27,11 +27,11 @@ export class AuthService {
   emailSignup(email: string, password: string) {
     this.afAuth.createUserWithEmailAndPassword(email, password)
     .then(value => {
-     console.log('Sucess', value);
+     console.log('exito', value);
      this.router.navigateByUrl('/profile');
     })
     .catch(error => {
-      console.log('Something went wrong: ', error);
+      console.log('error al crear usuario: ', error);
     });
   }
 
@@ -43,6 +43,17 @@ export class AuthService {
 
   loginF({email,password}){
     return this.afAuth.signInWithEmailAndPassword(email, password);
+  }
+
+  signUpF({email,password}){
+    return this.afAuth.createUserWithEmailAndPassword(email, password)
+    .then(value => {
+     console.log('exito', value);
+     this.router.navigateByUrl('/home');
+    })
+    .catch(error => {
+      console.log('error al crear usuario: ', error);
+    });
   }
 
 }
