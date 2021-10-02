@@ -1,8 +1,4 @@
 import { Component } from '@angular/core';
-/*import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
-
-export interface Item { name: string; }*/
 
 @Component({
   selector: 'app-root',
@@ -19,11 +15,4 @@ export interface Item { name: string; }*/
   //styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  //title = 'erp-cap-tec';
-  /*private itemDoc: AngularFirestoreDocument<Item>;
-  item: Observable<Item | undefined>;
-  constructor(private afs: AngularFirestore){
-  	this.itemDoc = afs.doc<Item>('items/1');
-  	this.item = this.itemDoc.valueChanges();
-  }*/
 }

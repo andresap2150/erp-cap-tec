@@ -41,4 +41,8 @@ export class AuthService {
     });
   }
 
+  loginF({email,password}){
+    return this.afAuth.signInWithEmailAndPassword(email, password);
+  }
+
 }

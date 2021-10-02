@@ -1,4 +1,4 @@
-<div class="form-container">
+<!--<div class="form-container">
   <h2>Iniciar Sesión</h2>
   <form #formData='ngForm' (ngSubmit)='onSubmit(formData)'>
     <input type="text" placeholder="Email address" name="email" class="input-txt" ngModel required>
@@ -6,4 +6,19 @@
     <button type="submit" [disabled]="!formData.valid" class="auth-btn">Iniciar</button>
   </form>
   <a routerLink="/signup" routerLinkActive="active" class="create-account-txt">Crear Cuenta</a>
-</div>
+</div>-->
+
+<mat-card>
+  <mat-card-title>ingresar</mat-card-title>
+  <mat-card-content>
+  	<div class="login-container" [formGroup]="loginForm">
+  	  <mat-form-field>
+  	  	<input matInput placeholder="ingrese su mail" fromControlName="email" required>
+  	  </mat-form-field>
+  	  <mat-form-field>
+  	  	<input matInput placeholder="Enter your password" formControlName="password">
+  	  </mat-form-field>
+  	</div>
+  	<button mat-raised-button color="primary" (click)="login()">Login</button>
+  </mat-card-content>
+</mat-card>

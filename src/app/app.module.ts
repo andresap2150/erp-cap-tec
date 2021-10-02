@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,24 +12,27 @@ import { CoreModule } from './modules/core/core.module';
 import { LayoutModule } from './modules/layout/layout.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './modules/user/login/login.component';
-import { SignupComponent } from './modules/user/signup/signup.component';
+
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    SignupComponent
+    AppComponent
   ],
   imports: [
     CoreModule,
     LayoutModule,
     BrowserModule,
-    FormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    MatCardModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
   ],
   //providers: [],
   bootstrap: [AppComponent]
