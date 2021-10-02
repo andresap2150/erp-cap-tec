@@ -22,46 +22,35 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit(formData) {
-  	//console.log(formData.value);
-    if (formData.valid) {
-      console.log(formData.value);
-      this.authService.login(
-        formData.value.email,
-        formData.value.password
-      );
-    }
+  public login() {
+    this.checkFormValidity(()=> {
+      this.authService.loginF(this.loginForm.value);
+    });
   }
 
-   public login() {
-     //console.log(this.loginForm.value);
-     this.checkFormValidity(()=> {
-       this.authService.loginF(this.loginForm.value);
-     });
-   }
+  public signUp() {
+    this.checkFormValidity(()=> {
+      this.authService.signUpF(this.loginForm.value);
+    });
+  }
 
-   public signUp() {
-     //console.log(this.loginForm.value);
-     this.checkFormValidity(()=> {
-       this.authService.signUpF(this.loginForm.value);
-     });
-   }
-
-   private checkFormValidity(cb) {
+  private checkFormValidity(cb) {
     if (this.loginForm.valid) {
       cb();
     } else {
+      //TODO: hhacer el arreglo aca no esta mostrando errores en UI
       //this.errorMessages$.next("Please enter correct Email and Password value");
       console.log("debe ingresar un mail y password correcto")
     }
   }     
 
-   public getErrorMessage(controlName: string, errorName: string): string {
+  public getErrorMessage(controlName: string, errorName: string): string {
     const control = this.loginForm.get(controlName);
-    console.log("get error 1");
+    //console.log("get error 1");
     let errorMessage = "";
     if(control != null){
-      console.log("get error 2", control.errors, control.hasError("required"));
+      //TODO: este va enlazado con el TODO de arriba
+      //console.log("get error 2", control.errors, control.hasError("required"));
       if (control.hasError("required"))
         errorMessage = "Debe ingresar un valor";
       if(control.hasError(errorName))

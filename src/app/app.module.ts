@@ -13,11 +13,6 @@ import { LayoutModule } from './modules/layout/layout.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-
-
 @NgModule({
   declarations: [
     AppComponent
@@ -29,10 +24,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,
-    AngularFireAuthModule,
-    MatCardModule,
-    MatFormFieldModule,
-    ReactiveFormsModule
+    AngularFireAuthModule
   ],
   //providers: [],
   bootstrap: [AppComponent]
