@@ -41,7 +41,12 @@ export class AuthService {
   }
 
   loginF({email,password}){
-    return this.afAuth.signInWithEmailAndPassword(email, password);
+    return this.afAuth.signInWithEmailAndPassword(email, password).then(value => {
+      this.router.navigateByUrl('/home');
+    })
+    .catch(err => {
+      console.log('Something went wrong: ', err.message);
+    });
   }
 
   signUpF({email,password}){
