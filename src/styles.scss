@@ -9,6 +9,7 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 .main{
     display: flex;
     flex:1;
+    position:relative;
 }
 mat-card {
  max-width: 80%;
