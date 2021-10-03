@@ -13,10 +13,10 @@ export class AuthService {
   	private afAuth: AngularFireAuth,
     private router: Router) {}
 
+  //TODO: Eliminar con refactor
   login(email: string, password: string) {
     this.afAuth.signInWithEmailAndPassword(email, password)
     .then(value => {
-      console.log('Nice, it worked!');
       this.router.navigateByUrl('/profile');
     })
     .catch(err => {
@@ -27,7 +27,6 @@ export class AuthService {
   emailSignup(email: string, password: string) {
     this.afAuth.createUserWithEmailAndPassword(email, password)
     .then(value => {
-     console.log('exito', value);
      this.router.navigateByUrl('/profile');
     })
     .catch(error => {
@@ -48,7 +47,6 @@ export class AuthService {
   signUpF({email,password}){
     return this.afAuth.createUserWithEmailAndPassword(email, password)
     .then(value => {
-     console.log('exito', value);
      this.router.navigateByUrl('/home');
     })
     .catch(error => {

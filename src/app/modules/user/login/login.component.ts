@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      email: ["", [Validators.required, Validators.email]],
-      password: ["", [Validators.required]]
+      email: ['', [Validators.required, Validators.email]], //TODO: averiguar porque no sirve er required   
+      password: ['',[Validators.required,Validators.minLength(6)]]
     });
   }
 
@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
   public signUp() {
+
     this.checkFormValidity(()=> {
       this.authService.signUpF(this.loginForm.value);
     });

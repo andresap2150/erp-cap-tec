@@ -5,11 +5,11 @@ import { Component } from '@angular/core';
   //templateUrl: './app.component.html',
   template: `
   <div class="appress-pwa-note">
-    <app-header></app-header>
+    <!--<app-header></app-header>-->
     <div class="main"> 
       <router-outlet></router-outlet>
     </div>
-    <app-footer></app-footer>
+    <!--<app-footer></app-footer>-->
   </div>
   `,
   //styleUrls: ['./app.component.scss']
