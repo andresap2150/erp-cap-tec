@@ -7,6 +7,9 @@ footer{
     flex-direction: column;
     align-items: center;
     white-space: nowrap;
+    bottom:0;
+    width:100%;
+    position:absolute;
 }
 .copyright {
     text-align: center;

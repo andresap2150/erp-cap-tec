@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-title>ingresar</mat-card-title>
+  <mat-card-content>
+  	<div class="login-container" [formGroup]="loginForm">
+  	  <mat-form-field>
+  	  	<input matInput placeholder="ingrese su mail" formControlName="email">
+         <mat-error *ngIf="loginForm?.get('email')?.invalid">{{getErrorMessage('email', 'email')}}</mat-error>
+  	  </mat-form-field>
+  	  <mat-form-field>
+  	  	<input matInput placeholder="Ingrese su password" [type]="hide ? 'password' : 'text'" formControlName="password">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+  	  </mat-form-field>
+  	</div>
+  	<button mat-raised-button color="primary" (click)="login()">Iniciar Sesión</button>
+  </mat-card-content>
+  <mat-card-content><br>tambien puede...<br><br></mat-card-content>
+  <mat-card-content>
+    <button mat-raised-button color="accent" (click)="signUp()">Crear Cuenta</button>
+  </mat-card-content>
+</mat-card>
