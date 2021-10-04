@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]], //TODO: averiguar porque no sirve er required   
+      email: ['', [Validators.required, Validators.email]],  
       password: ['',[Validators.required,Validators.minLength(6)]]
     });
   }
@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       cb();
     } else {
-      //TODO: hhacer el arreglo aca no esta mostrando errores en UI
       //this.errorMessages$.next("Please enter correct Email and Password value");
       console.log("debe ingresar un mail y password correcto")
     }
