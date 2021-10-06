@@ -46,7 +46,6 @@ export class LoginComponent implements OnInit {
 
   public getErrorMessage(controlName: string, errorName: string): string {
     const control = this.loginForm.get(controlName);
-    //console.log("get error 1");
     let errorMessage = "";
     if(control != null){
       //TODO: este va enlazado con el TODO de arriba
