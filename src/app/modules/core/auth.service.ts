@@ -2,39 +2,27 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore'
+import { Subject} from 'rxjs';
+import { catchError, tap, map } from "rxjs/operators";
 
-import * as firebase from 'firebase/app';
+interface User {
+  uid: string;
+  email: string;
+  rol: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
+  public user$ = new Subject<User>();
+  public aux;
 
   constructor(
   	private afAuth: AngularFireAuth,
     private afStore: AngularFirestore,
     private router: Router) {}
-
-  //TODO: Eliminar con refactor
-  login(email: string, password: string) {
-    this.afAuth.signInWithEmailAndPassword(email, password)
-    .then(value => {
-      this.router.navigateByUrl('/profile');
-    })
-    .catch(err => {
-      console.log('Something went wrong: ', err.message);
-    });
-  }
-
-  emailSignup(email: string, password: string) {
-    this.afAuth.createUserWithEmailAndPassword(email, password)
-    .then(value => {
-     this.router.navigateByUrl('/profile');
-    })
-    .catch(error => {
-      console.log('error al crear usuario: ', error);
-    });
-  }
 
   logout() {
     this.afAuth.signOut().then(() => {
@@ -43,11 +31,8 @@ export class AuthService {
   }
 
   loginF({email,password}){
-    return this.afAuth.signInWithEmailAndPassword(email, password).then(value => {
-      this.router.navigateByUrl('/home');
-    })
-    .catch(err => {
-      console.log('Something went wrong: ', err.message);
+    this.handleErrorOrSuccess(() => {
+      return this.afAuth.signInWithEmailAndPassword(email, password)
     });
   }
 
@@ -66,4 +51,23 @@ export class AuthService {
     });
   }
 
+  private handleErrorOrSuccess(
+    cb: ()=> Promise<firebase.default.auth.UserCredential>
+  ){
+    cb()
+      .then(data => this.authenticateUser(data)).then(a => this.router.navigateByUrl('/home'))
+      .catch(e =>  console.log('Algo salió mal: ', e.message));
+  }
+
+  private authenticateUser(userCredential){
+    const {user: {email, uid}} = userCredential;
+
+    this.afStore.collection("perfilUsuario", ref => ref.where("userUid","==",uid))
+      .valueChanges()
+      .subscribe(res=> {
+        this.aux = res[0];
+        const rol = this.aux["rol"];
+        this.user$.next({email, uid, rol});
+      })    
+  }
 }
