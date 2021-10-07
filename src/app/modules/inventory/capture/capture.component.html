@@ -1,0 +1,26 @@
+<mat-table #table [dataSource]="dataSource">
+  <ng-container matColumDef="id">
+  	<mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+  	<mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.id}}</mat-cell>
+  </ng-container>
+  <ng-container matColumDef="nombre">
+  	<mat-header-cell *matHeaderCellDef>Activo</mat-header-cell>
+  	<mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.nombre}}</mat-cell>
+  </ng-container>
+  <ng-container matColumDef="referencia">
+  	<mat-header-cell *matHeaderCellDef>Referencia</mat-header-cell>
+  	<mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.referencia}}</mat-cell>
+  </ng-container>
+  <ng-container matColumDef="descripcion">
+  	<mat-header-cell *matHeaderCellDef>Descripción</mat-header-cell>
+  	<mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.descripcion}}</mat-cell>
+  </ng-container>
+  <ng-container matColumDef="imagen">
+  	<mat-header-cell *matHeaderCellDef>Imagen</mat-header-cell>
+  	<mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.imagen}}</mat-cell>
+  </ng-container>
+  <ng-container matColumDef="cantidad">
+  	<mat-header-cell *matHeaderCellDef>Cantidad</mat-header-cell>
+  	<mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.cantidad}}</mat-cell>
+  </ng-container>
+</mat-table>

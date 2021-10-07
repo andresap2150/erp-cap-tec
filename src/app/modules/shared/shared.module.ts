@@ -15,6 +15,8 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 
+import { MatTableModule } from '@angular/material/table';
+
 
 const SHARED_MODULES = [
   CommonModule,
@@ -31,7 +33,8 @@ const SHARED_MODULES = [
   RouterModule,
   MatFormFieldModule,
   ReactiveFormsModule,
-  FormsModule
+  FormsModule,
+  MatTableModule
 ];
 
 const SHARED_COMPONENTS = [];
