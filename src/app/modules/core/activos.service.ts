@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore'
+import { AngularFirestore,DocumentReference,DocumentData  } from '@angular/fire/compat/firestore'
 import { ActivoTecnologico } from '../../models/ActivoTecnologico'
 import { catchError,tap, map } from "rxjs/operators";
 import { Observable, throwError, BehaviorSubject } from "rxjs";
@@ -14,7 +14,7 @@ export class ActivosService {
   constructor(private afStore: AngularFirestore) { }
 
   getTodosActivos(){
-  	return this.afStore.collection("activos")
+  	return this.getActivosCollections()
   	  .snapshotChanges()
   	  .pipe(
   	  	map(spsh =>
@@ -25,5 +25,17 @@ export class ActivosService {
   	      })
   	  	), catchError(e => throwError(e))
   	  );
+  }
+
+  addActivos(data) {
+  	const timestamp = new Date().getTime();
+  	return this.getActivosCollections().add({
+  	  ...data,
+  	  fec_pub : timestamp
+  	})
+  }
+
+  getActivosCollections(){
+  	return this.afStore.collection("activos")
   }
 }

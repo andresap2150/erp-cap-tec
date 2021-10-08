@@ -1,24 +1,28 @@
 <div class=capture-comp>
   <div class="add-activos-cont" [formGroup]="activosForm">
     <mat-form-field>
-      <input matInput placeholder="Id del Activo" formControlName="id_new" required>
+      <input matInput placeholder="Id del Activo" formControlName="id_activo" required>
+      <mat-error *ngIf="activosForm?.get('id_activo')?.invalid">{{getErrorMessage('id_activo', '')}}</mat-error>
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Nombre" formControlName="nombre_new" required>
+      <input matInput placeholder="Nombre" formControlName="nombre_activo" required>
+      <mat-error *ngIf="activosForm?.get('nombre_activo')?.invalid">{{getErrorMessage('nombre_activo', '')}}</mat-error>
     </mat-form-field>
     <mat-form-field>  
-      <input matInput placeholder="Referencia" formControlName="id_new" required>
+      <input matInput placeholder="Referencia" formControlName="ref_activo" required>
+      <mat-error *ngIf="activosForm?.get('ref_activo')?.invalid">{{getErrorMessage('ref_activo', '')}}</mat-error>
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Descripción" formControlName="desc_new">
+      <input matInput placeholder="Descripción" formControlName="desc_activo">
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Imagen" formControlName="image_new">
+      <input matInput placeholder="Imagen" formControlName="image">
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Cantidad" formControlName="cant_new">
+      <input matInput placeholder="Cantidad" formControlName="cant">
+      <mat-error *ngIf="activosForm?.get('cant')?.invalid">{{getErrorMessage('cant_new', 'min')}}</mat-error>
     </mat-form-field>
-    <button mat-icon-button><mat-icon>note_add</mat-icon></button>
+    <button mat-icon-button (click)="saveActivoOnDB()"><mat-icon>note_add</mat-icon></button>
   </div>
 
   <div class="example-container mat-elevation-z8">
