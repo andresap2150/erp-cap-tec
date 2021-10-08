@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivoTecnologico } from '../../../models/ActivoTecnologico';
+import { ActivosService } from '../../core/activos.service';
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-capture',
@@ -7,25 +10,15 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./capture.component.scss']
 })
 export class CaptureComponent implements OnInit {
-  displayedColumns = ['id', 'nombre', 'referencia', 'descripcion', 'imagen','cantidad'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  displayedColumns = ['id_activo', 'nombre_activo', 'ref_activo', 'desc_activo', 'image','cant'];
 
-  constructor() { }
+  activos$ : Observable<ActivoTecnologico[]>;
 
-  ngOnInit(): void {
+  constructor(private db: ActivosService) { }
+
+  ngOnInit() {
+  	this.activos$ = this.db.getTodosActivos();
   }
 
 }
 
-const ELEMENT_DATA: ativoTecnologico[] = [
-  {id:'ACT-01', nombre:'Cortadora vertical 8 pulgadas', referencia:'Jontex czd - 3', descripcion: 'Maquina de altura de corte de 8 pulgadas', imagen:'http//imagen', cantidad:1}
-];
-
-export interface ativoTecnologico {
-  id: string;
-  nombre: string;
-  referencia: string;
-  descripcion: string;
-  imagen: string;
-  cantidad: number;
-}

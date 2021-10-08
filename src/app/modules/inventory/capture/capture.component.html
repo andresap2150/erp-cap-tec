@@ -1,26 +1,31 @@
-<mat-table #table [dataSource]="dataSource">
-  <ng-container matColumDef="id">
-  	<mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
-  	<mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.id}}</mat-cell>
-  </ng-container>
-  <ng-container matColumDef="nombre">
-  	<mat-header-cell *matHeaderCellDef>Activo</mat-header-cell>
-  	<mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.nombre}}</mat-cell>
-  </ng-container>
-  <ng-container matColumDef="referencia">
-  	<mat-header-cell *matHeaderCellDef>Referencia</mat-header-cell>
-  	<mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.referencia}}</mat-cell>
-  </ng-container>
-  <ng-container matColumDef="descripcion">
-  	<mat-header-cell *matHeaderCellDef>Descripción</mat-header-cell>
-  	<mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.descripcion}}</mat-cell>
-  </ng-container>
-  <ng-container matColumDef="imagen">
-  	<mat-header-cell *matHeaderCellDef>Imagen</mat-header-cell>
-  	<mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.imagen}}</mat-cell>
-  </ng-container>
-  <ng-container matColumDef="cantidad">
-  	<mat-header-cell *matHeaderCellDef>Cantidad</mat-header-cell>
-  	<mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.cantidad}}</mat-cell>
-  </ng-container>
-</mat-table>
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="activos$">
+    <ng-container matColumnDef="id_activo">
+  	  <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+  	  <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.id_activo}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="nombre_activo">
+  	  <mat-header-cell *matHeaderCellDef>Activo</mat-header-cell>
+  	  <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.nombre_activo}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="ref_activo">
+  	  <mat-header-cell *matHeaderCellDef>Referencia</mat-header-cell>
+  	  <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.ref_activo}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="desc_activo">
+  	  <mat-header-cell *matHeaderCellDef>Descripción</mat-header-cell>
+  	  <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.desc_activo}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="image">
+  	  <mat-header-cell *matHeaderCellDef>Imagen</mat-header-cell>
+  	  <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.image}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="cant">
+  	  <mat-header-cell *matHeaderCellDef>Cantidad</mat-header-cell>
+  	  <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.cant}}</mat-cell>
+    </ng-container>
+    
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+<div>
