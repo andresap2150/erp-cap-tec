@@ -1,7 +1,16 @@
-.example-container {
+.capture-comp{
   position: absolute;
-  left:0;
+  display: flex;
+  flex-direction:column;
   top:64px;
+}
+.add-activos-con{
+  display: flex;
+}
+
+.example-container {
+  left:0;
+  top:164px;
   width: 100%;
 }
 
@@ -9,3 +18,4 @@
   overflow: auto;
   max-height: 500px;
 }
+

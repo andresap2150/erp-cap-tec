@@ -1,31 +1,54 @@
-<div class="example-container mat-elevation-z8">
-  <mat-table #table [dataSource]="activos$">
-    <ng-container matColumnDef="id_activo">
-  	  <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
-  	  <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.id_activo}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="nombre_activo">
-  	  <mat-header-cell *matHeaderCellDef>Activo</mat-header-cell>
-  	  <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.nombre_activo}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="ref_activo">
-  	  <mat-header-cell *matHeaderCellDef>Referencia</mat-header-cell>
-  	  <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.ref_activo}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="desc_activo">
-  	  <mat-header-cell *matHeaderCellDef>Descripción</mat-header-cell>
-  	  <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.desc_activo}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="image">
-  	  <mat-header-cell *matHeaderCellDef>Imagen</mat-header-cell>
-  	  <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.image}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="cant">
-  	  <mat-header-cell *matHeaderCellDef>Cantidad</mat-header-cell>
-  	  <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.cant}}</mat-cell>
-    </ng-container>
-    
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-<div>
+<div class=capture-comp>
+  <div class="add-activos-cont" [formGroup]="activosForm">
+    <mat-form-field>
+      <input matInput placeholder="Id del Activo" formControlName="id_new" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Nombre" formControlName="nombre_new" required>
+    </mat-form-field>
+    <mat-form-field>  
+      <input matInput placeholder="Referencia" formControlName="id_new" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Descripción" formControlName="desc_new">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Imagen" formControlName="image_new">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Cantidad" formControlName="cant_new">
+    </mat-form-field>
+    <button mat-icon-button><mat-icon>note_add</mat-icon></button>
+  </div>
+
+  <div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="activos$">
+      <ng-container matColumnDef="id_activo">
+  	    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+  	    <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.id_activo}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="nombre_activo">
+  	    <mat-header-cell *matHeaderCellDef>Activo</mat-header-cell>
+  	    <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.nombre_activo}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="ref_activo">
+  	    <mat-header-cell *matHeaderCellDef>Referencia</mat-header-cell>
+  	    <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.ref_activo}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="desc_activo">
+  	    <mat-header-cell *matHeaderCellDef>Descripción</mat-header-cell>
+  	    <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.desc_activo}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="image">
+  	    <mat-header-cell *matHeaderCellDef>Imagen</mat-header-cell>
+  	    <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.image}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="cant">
+  	    <mat-header-cell *matHeaderCellDef>Cantidad</mat-header-cell>
+  	    <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.cant}}</mat-cell>
+      </ng-container>    
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  <div>
+</div>
