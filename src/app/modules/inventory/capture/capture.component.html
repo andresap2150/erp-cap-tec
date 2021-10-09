@@ -50,7 +50,13 @@
       <ng-container matColumnDef="cant">
   	    <mat-header-cell *matHeaderCellDef>Cantidad</mat-header-cell>
   	    <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.cant}}</mat-cell>
-      </ng-container>    
+      </ng-container>
+      <ng-container matColumnDef="accion">
+  	    <mat-header-cell *matHeaderCellDef>Acción</mat-header-cell>
+  	    <mat-cell *matCellDef="let ativoTecnologico">
+  	      <button mat-icon-button (click)="deleteActivoOnDB(ativoTecnologico.id)"><mat-icon>delete</mat-icon></button>
+  	    </mat-cell>
+      </ng-container>        
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>

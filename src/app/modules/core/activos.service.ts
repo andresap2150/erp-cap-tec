@@ -38,4 +38,8 @@ export class ActivosService {
   getActivosCollections(){
   	return this.afStore.collection("activos")
   }
+
+  deleteActivo(uid){
+  	return this.getActivosCollections().doc(uid).delete();
+  }
 }

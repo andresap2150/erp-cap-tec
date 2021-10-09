@@ -11,7 +11,7 @@ import { Validators,FormBuilder,FormGroup } from '@angular/forms';
   styleUrls: ['./capture.component.scss']
 })
 export class CaptureComponent implements OnInit {
-  public displayedColumns = ['id_activo', 'nombre_activo', 'ref_activo', 'desc_activo', 'image','cant'];
+  public displayedColumns = ['id_activo', 'nombre_activo', 'ref_activo', 'desc_activo', 'image','cant','accion'];
   public activos$ : Observable<ActivoTecnologico[]>;
   public activosForm : FormGroup;
 
@@ -54,6 +54,10 @@ export class CaptureComponent implements OnInit {
         errorMessage = "La cantidad debe ser mayor a 0";
     }
     return errorMessage;
+  }
+
+  public deleteActivoOnDB(id){
+  	this.db.deleteActivo(id);
   }   
 }
 
