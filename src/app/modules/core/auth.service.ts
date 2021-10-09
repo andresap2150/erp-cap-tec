@@ -5,12 +5,6 @@ import { AngularFirestore } from '@angular/fire/compat/firestore'
 import { Subject} from 'rxjs';
 import { catchError, tap, map } from "rxjs/operators";
 
-interface User {
-  uid: string;
-  email: string;
-  rol: string;
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -70,4 +64,10 @@ export class AuthService {
         this.user$.next({email, uid, rol});
       })    
   }
+}
+
+export interface User {
+  uid: string;
+  email: string;
+  rol: string;
 }
