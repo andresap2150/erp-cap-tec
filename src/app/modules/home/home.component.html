@@ -1,8 +1,3 @@
-<!--<div class="appress-pwa-note">-->
-  <app-header *ngIf="isRoleAdmin()"></app-header>
-  <!--<div class="main"> 
-    <router-outlet></router-outlet>
-  </div>-->
-  <app-capture></app-capture>
-  <app-footer></app-footer>
-<!--/div-->
+<app-header></app-header>
+<app-capture *ngIf="(user$ | async)?.rol ==='4'"></app-capture>
+<app-footer></app-footer>
