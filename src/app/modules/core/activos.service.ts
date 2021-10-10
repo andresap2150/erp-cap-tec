@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore,DocumentReference,DocumentData  } from '@angular/fire/compat/firestore'
 import { ActivoTecnologico } from '../../models/ActivoTecnologico'
-import { catchError,tap, map } from "rxjs/operators";
-import { Observable, throwError, BehaviorSubject } from "rxjs";
+import { catchError, map } from "rxjs/operators";
+import { Observable, throwError } from "rxjs";
 
 @Injectable({
   providedIn: 'root'

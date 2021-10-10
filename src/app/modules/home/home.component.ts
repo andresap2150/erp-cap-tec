@@ -19,10 +19,4 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   	this.user$ = this.auth.user$;
   }
-
-  isRoleAdmin(){
-  	return this.auth.user$.subscribe(u =>u.rol==="4")
- 
-  }
-
 }
