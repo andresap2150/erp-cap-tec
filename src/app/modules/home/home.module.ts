@@ -4,7 +4,6 @@ import { LayoutModule } from '../layout/layout.module';
 import { SharedModule } from '../shared/shared.module';
 import { HomeRoutingModule } from './home-routing.module';
 import { CaptureModule } from '../inventory/capture/capture.module';
-import { BarraUsuarioModule } from '../barra-usuario/barra-usuario.module';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -12,8 +11,7 @@ import { BarraUsuarioModule } from '../barra-usuario/barra-usuario.module';
   	SharedModule,
     LayoutModule,
     HomeRoutingModule,
-    CaptureModule,
-    BarraUsuarioModule
+    CaptureModule
   ]
 })
 export class HomeModule { }

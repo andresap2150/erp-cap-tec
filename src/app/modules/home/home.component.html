@@ -1,4 +1,6 @@
-<app-header></app-header>
-<app-barra-usuario></app-barra-usuario>
-<app-capture *ngIf="(user$ | async)?.rol ==='4'"></app-capture>
+<div class=home-layout>
+  <app-header (messageEvent)="barraNavegacionListener($event)"></app-header>
+  <!--app-capture *ngIf="(user$ | async)?.rol ==='4'"></app-capture-->
+  <app-capture *ngIf="visibilidadCapture"></app-capture>
+</div>
 <app-footer></app-footer>
