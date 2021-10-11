@@ -3,8 +3,8 @@ import { HomeComponent } from './home.component';
 import { LayoutModule } from '../layout/layout.module';
 import { SharedModule } from '../shared/shared.module';
 import { HomeRoutingModule } from './home-routing.module';
-import { CaptureModule } from '../inventory/capture/capture.module'
-
+import { CaptureModule } from '../inventory/capture/capture.module';
+import { BarraUsuarioModule } from '../barra-usuario/barra-usuario.module';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -12,7 +12,8 @@ import { CaptureModule } from '../inventory/capture/capture.module'
   	SharedModule,
     LayoutModule,
     HomeRoutingModule,
-    CaptureModule
+    CaptureModule,
+    BarraUsuarioModule
   ]
 })
 export class HomeModule { }

@@ -9,12 +9,10 @@ import { environment } from '../environments/environment';
 
 import { CoreModule } from './modules/core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BarraUsuarioComponent } from './modules/barra-usuario/barra-usuario.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    BarraUsuarioComponent
+    AppComponent
   ],
   imports: [
     CoreModule,
