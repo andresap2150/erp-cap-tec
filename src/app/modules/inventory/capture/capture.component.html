@@ -1,0 +1,64 @@
+<div class=capture-comp>
+  <div class="add-activos-cont" [formGroup]="activosForm">
+    <mat-form-field>
+      <input matInput placeholder="Id del Activo" formControlName="id_activo" required>
+      <mat-error *ngIf="activosForm?.get('id_activo')?.invalid">{{getErrorMessage('id_activo', '')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Nombre" formControlName="nombre_activo" required>
+      <mat-error *ngIf="activosForm?.get('nombre_activo')?.invalid">{{getErrorMessage('nombre_activo', '')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>  
+      <input matInput placeholder="Referencia" formControlName="ref_activo" required>
+      <mat-error *ngIf="activosForm?.get('ref_activo')?.invalid">{{getErrorMessage('ref_activo', '')}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Descripción" formControlName="desc_activo">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Imagen" formControlName="image">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Cantidad" formControlName="cant">
+      <mat-error *ngIf="activosForm?.get('cant')?.invalid">{{getErrorMessage('cant_new', 'min')}}</mat-error>
+    </mat-form-field>
+    <button mat-icon-button (click)="saveActivoOnDB()"><mat-icon>note_add</mat-icon></button>
+  </div>
+
+  <div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="activos$">
+      <ng-container matColumnDef="id_activo">
+  	    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+  	    <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.id_activo}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="nombre_activo">
+  	    <mat-header-cell *matHeaderCellDef>Activo</mat-header-cell>
+  	    <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.nombre_activo}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="ref_activo">
+  	    <mat-header-cell *matHeaderCellDef>Referencia</mat-header-cell>
+  	    <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.ref_activo}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="desc_activo">
+  	    <mat-header-cell *matHeaderCellDef>Descripción</mat-header-cell>
+  	    <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.desc_activo}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="image">
+  	    <mat-header-cell *matHeaderCellDef>Imagen</mat-header-cell>
+  	    <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.image}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="cant">
+  	    <mat-header-cell *matHeaderCellDef>Cantidad</mat-header-cell>
+  	    <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.cant}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="accion">
+  	    <mat-header-cell *matHeaderCellDef>Acción</mat-header-cell>
+  	    <mat-cell *matCellDef="let ativoTecnologico">
+  	      <button mat-icon-button (click)="deleteActivoOnDB(ativoTecnologico.id)"><mat-icon>delete</mat-icon></button>
+  	    </mat-cell>
+      </ng-container>        
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  <div>
+</div>

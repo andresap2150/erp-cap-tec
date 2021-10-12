@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  //templateUrl: './app.component.html',
   template: `
   <div class="appress-pwa-note">
     <!--<app-header></app-header>-->
@@ -12,7 +11,6 @@ import { Component } from '@angular/core';
     <!--<app-footer></app-footer>-->
   </div>
   `,
-  //styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
 }
