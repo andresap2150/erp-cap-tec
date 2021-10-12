@@ -1,9 +1,14 @@
+/*@import '@angular/material/prebuilt-themes/deeppurple-amber.css';*/
+
 .capture-comp{
   position: absolute;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction:column;
   top:128px;
   width: 100%;
+  background-color: white;
 }
 .add-activos-con{
   display: flex;
@@ -20,3 +25,10 @@
   max-height: 500px;
 }
 
+.mat-row:nth-child(even){
+  background-color: rgb(216, 216, 216);
+}
+      
+.mat-row:nth-child(odd){
+  background-color: white;
+}

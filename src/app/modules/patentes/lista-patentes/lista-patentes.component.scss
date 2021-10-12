@@ -1,0 +1,29 @@
+.lista-patentes-comp{
+    position: absolute;
+    display: flex;
+    flex-direction:column;
+    top:128px;
+    width: 100%;
+  }
+  .add-activos-con{
+    display: flex;
+  }
+  
+  .example-container {
+    left:0;
+    top:164px;
+    width: 100%;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+.mat-row:nth-child(even){
+    background-color: red;
+}
+        
+.mat-row:nth-child(odd){
+    background-color: black;
+}
+  
