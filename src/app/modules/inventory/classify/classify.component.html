@@ -1,0 +1,52 @@
+<div class= classi-comp>
+  <div class="example-container mat-elevation-z6">
+    <mat-table #table [dataSource]="activos$">
+      <ng-container matColumnDef="id_activo">
+  	    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+  	    <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.id_activo}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="nombre_activo">
+  	    <mat-header-cell *matHeaderCellDef>Activo</mat-header-cell>
+  	    <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.nombre_activo}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="accion">
+  	    <mat-header-cell *matHeaderCellDef>Acción</mat-header-cell>
+  	    <mat-cell *matCellDef="let ativoTecnologico">
+  	      <button mat-icon-button (click)="startClassification(ativoTecnologico.id)"><mat-icon>edit_note</mat-icon></button>
+  	    </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+  <mat-card class="class-card mat-elevation-z8">
+  	<mat-card-title>{{nombreActivoActual}}</mat-card-title>
+  	<mat-card-content>
+  	  <div [formGroup]="clasactivosForm" class="class-act-form">
+  	  	<mat-radio-group formControlName="iot">¿Es tangible o intangible?
+  	  	  <mat-radio-button value="tangible">Tangible</mat-radio-button>
+  	  	  <mat-radio-button value="intangible">Intangible</mat-radio-button>
+  	  	</mat-radio-group>
+  	  	<mat-form-field>
+          <mat-label>Según el grado de incorporación</mat-label>
+          <mat-select formControlName="gi">
+            <mat-option value="hu">Humanware</mat-option>
+            <mat-option value="in">Infoware</mat-option>
+            <mat-option value="teh">Hardware</mat-option>
+            <mat-option value="tes">Software</mat-option>
+            <mat-option value="or">Orgware</mat-option>
+          </mat-select>
+        </mat-form-field>
+  	  	<mat-radio-group formControlName="mp">Según el metodo de producción
+  	  	  <mat-radio-button value="blando">Blanda</mat-radio-button>
+  	  	  <mat-radio-button value="intangible">Dura</mat-radio-button>
+  	  	</mat-radio-group>
+  	  	<mat-radio-group formControlName="utili">Según su utlización en proceso productivo
+  	  	  <mat-radio-button value="incorporada">Incorporada</mat-radio-button>
+  	  	  <mat-radio-button value="kn">Know-how</mat-radio-button>
+  	  	</mat-radio-group>
+  	  </div>
+  	  <button mat-raised-button color="primary">Generar códigos</button>
+  	</mat-card-content>
+  </mat-card>
+</div>

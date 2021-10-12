@@ -48,8 +48,6 @@ export class LoginComponent implements OnInit {
     const control = this.loginForm.get(controlName);
     let errorMessage = "";
     if(control != null){
-      //TODO: este va enlazado con el TODO de arriba
-      //console.log("get error 2", control.errors, control.hasError("required"));
       if (control.hasError("required"))
         errorMessage = "Debe ingresar un valor";
       if(control.hasError("min"))

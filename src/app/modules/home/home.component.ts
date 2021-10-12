@@ -14,6 +14,7 @@ import { User } from '../core/auth.service';
 export class HomeComponent implements OnInit {
   public user$: Subject<User>;
   public visibilidadCapture = false;
+  public visibilidadClassify = false;
 
   constructor(private auth : AuthService) { }
 
@@ -23,8 +24,12 @@ export class HomeComponent implements OnInit {
 
   barraNavegacionListener($event){
   	if($event === 'capturaactivo'){
-  		console.log("voy a mostar el capture");
   		this.visibilidadCapture = true;
+      this.visibilidadClassify = false;
   	}
+    if($event === 'clasificaactivo'){
+      this.visibilidadClassify = true;
+      this.visibilidadCapture = false;
+    }
   }
 }

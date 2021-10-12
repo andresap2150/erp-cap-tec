@@ -45,6 +45,7 @@ export class CaptureComponent implements OnInit {
   }
 
   public getErrorMessage(controlName: string, errorName: string): string {
+    //TODO: si queda tiempo diseñar una forma para no repetir este codigo esta en LoginComponent
     const control = this.activosForm.get(controlName);
     let errorMessage = "";
     if(control != null){
