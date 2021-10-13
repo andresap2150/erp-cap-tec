@@ -12,41 +12,76 @@
       <ng-container matColumnDef="accion">
   	    <mat-header-cell *matHeaderCellDef>Acción</mat-header-cell>
   	    <mat-cell *matCellDef="let ativoTecnologico">
-  	      <button mat-icon-button (click)="startClassification(ativoTecnologico.id)"><mat-icon>edit_note</mat-icon></button>
+  	      <button mat-icon-button (click)="startClassification(ativoTecnologico)" *ngIf=!ativoTecnologico.calificationDone><mat-icon>edit_note</mat-icon></button>
+          <mat-icon *ngIf=ativoTecnologico.calificationDone>done</mat-icon>
   	    </mat-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
   </div>
-  <mat-card class="class-card mat-elevation-z8">
-  	<mat-card-title>{{nombreActivoActual}}</mat-card-title>
+  <mat-card class="class-card mat-elevation-z8" *ngIf="visibilidadCardActivos">
+  	<mat-card-title>{{activoActual.nombre_activo}}</mat-card-title>
   	<mat-card-content>
   	  <div [formGroup]="clasactivosForm" class="class-act-form">
-  	  	<mat-radio-group formControlName="iot">¿Es tangible o intangible?
-  	  	  <mat-radio-button value="tangible">Tangible</mat-radio-button>
-  	  	  <mat-radio-button value="intangible">Intangible</mat-radio-button>
-  	  	</mat-radio-group>
-  	  	<mat-form-field>
-          <mat-label>Según el grado de incorporación</mat-label>
-          <mat-select formControlName="gi">
-            <mat-option value="hu">Humanware</mat-option>
-            <mat-option value="in">Infoware</mat-option>
-            <mat-option value="teh">Hardware</mat-option>
-            <mat-option value="tes">Software</mat-option>
-            <mat-option value="or">Orgware</mat-option>
-          </mat-select>
-        </mat-form-field>
-  	  	<mat-radio-group formControlName="mp">Según el metodo de producción
-  	  	  <mat-radio-button value="blando">Blanda</mat-radio-button>
-  	  	  <mat-radio-button value="intangible">Dura</mat-radio-button>
-  	  	</mat-radio-group>
-  	  	<mat-radio-group formControlName="utili">Según su utlización en proceso productivo
-  	  	  <mat-radio-button value="incorporada">Incorporada</mat-radio-button>
-  	  	  <mat-radio-button value="kn">Know-how</mat-radio-button>
-  	  	</mat-radio-group>
+  	    <div class=form-row>
+          <mat-label>¿Es tangible o intangible?</mat-label>
+          <span class="space-between"></span>
+          <mat-radio-group formControlName="iot" required>
+  	  	    <mat-radio-button value="tangible">Tangible</mat-radio-button>
+  	  	    <mat-radio-button value="intangible">Intangible</mat-radio-button>
+  	  	  </mat-radio-group>
+        </div>
+        <br>
+  	  	<div class=form-row>
+          <label>Según el grado de incorporación</label>
+          <span class="space-between"></span>
+          <mat-form-field>  
+            <mat-select formControlName="gi" required>
+              <mat-option value="hu">Humanware</mat-option>
+              <mat-option value="in">Infoware</mat-option>
+              <mat-option value="teh">Hardware</mat-option>
+              <mat-option value="tes">Software</mat-option>
+              <mat-option value="or">Orgware</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <br>
+        <div class=form-row>
+          <mat-label>Según el metodo de producción</mat-label>
+          <span class="space-between"></span>
+          <mat-radio-group formControlName="mp" required>
+            <mat-radio-button value="blando">Blanda</mat-radio-button>
+            <mat-radio-button value="intangible">Dura</mat-radio-button>
+          </mat-radio-group>
+        </div>
+  	  	<br>
+        <div class=form-row>
+          <mat-label>Según su utlización en proceso productivo</mat-label>
+          <span class="space-between"></span>
+  	  	  <mat-radio-group formControlName="ut" required>
+  	  	    <mat-radio-button value="incorporada">Incorporada</mat-radio-button>
+  	  	    <mat-radio-button value="kn">Know-how</mat-radio-button>
+  	  	  </mat-radio-group>
+        </div>
+        <br>
   	  </div>
-  	  <button mat-raised-button color="primary">Generar códigos</button>
+
+  	  <button mat-raised-button color="primary" (click)="generarCodigos()">Generar códigos</button>
   	</mat-card-content>
+  </mat-card>
+  <mat-card class="mat-elevation-z10" *ngIf="visibilidadCodigosInfo">
+    <mat-card-title>Códigos generados</mat-card-title>
+    <mat-card-content>
+      <mat-label>xxxxxx</mat-label>
+      <br>
+      <mat-label>xxxxxx</mat-label>
+      <br>
+      <mat-label>xxxxxx</mat-label>
+      <br>
+      <mat-label>xxxxxx</mat-label>
+      <br>
+      <button mat-raised-button color="primary" (click)="guardarClasificacion()">Guardar</button>
+    </mat-card-content>
   </mat-card>
 </div>
