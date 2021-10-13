@@ -9,12 +9,10 @@ import { environment } from '../environments/environment';
 
 import { CoreModule } from './modules/core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ListaPatentesComponent } from './modules/patentes/lista-patentes/lista-patentes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListaPatentesComponent
   ],
   imports: [
     CoreModule,

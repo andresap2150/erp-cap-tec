@@ -23,8 +23,12 @@ export class HomeComponent implements OnInit {
 
   barraNavegacionListener($event){
   	if($event === 'capturaactivo'){
-  		console.log("voy a mostar el capture");
+  		console.log("voy a mostrar el capture");
   		this.visibilidadCapture = true;
   	}
+    if($event === 'lista-patentes'){
+  		console.log("voy a mostrar registro patentes");
+  		this.visibilidadCapture = true;
+    }
   }
 }
