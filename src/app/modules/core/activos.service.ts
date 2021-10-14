@@ -42,4 +42,9 @@ export class ActivosService {
   deleteActivo(uid){
   	return this.getActivosCollections().doc(uid).delete();
   }
+
+  extendActivo(data){
+    console.log("se va a actualizar..",data);
+    return this.getActivosCollections().doc(data.id).update(data);
+  }
 }
