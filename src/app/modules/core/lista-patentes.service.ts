@@ -27,6 +27,7 @@ export class ListaPatentesService {
   }
 
   addListaPatentes(data) {
+    console.log("en servicio", data)
   	const timestamp = new Date().getTime();
   	return this.getListaPatentesCollections().add({
   	  ...data,
@@ -35,7 +36,7 @@ export class ListaPatentesService {
   }
 
   getListaPatentesCollections(){
-  	return this.afStore.collection("lista-patentes")
+  	return this.afStore.collection("Patentes")
   }
 
   deleteListaPatentes(uid){

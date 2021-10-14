@@ -21,11 +21,12 @@ export class ListaPatentesComponent implements OnInit {
     this.listapatentes$ = this.db.getListaPatentes();
   	this.listapatentesForm = this.fb.group({
   	  id_urlwebsite: ['', Validators.required],
-  	  path_urlwebsite: ['',Validators.required, Validators.minLength(20)],
+  	  path_urlwebsite: ['',[Validators.required, Validators.minLength(20)]],
   	  desc_urlwebsite: ['', Validators.required]
   	})
   }
   public saveListaPatentesOnDB(){
+    console.log("saveListaPatentesOnDB", this.listapatentesForm.value);
   	this.checkFormValidity(()=>this.db.addListaPatentes(this.listapatentesForm.value));
   	//TODO: evaluar si la insersion en BD fue correcta antes de resetear
   	this.listapatentesForm.reset();
