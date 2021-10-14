@@ -2,5 +2,6 @@
   <app-header (messageEvent)="barraNavegacionListener($event)"></app-header>
   <!--app-capture *ngIf="(user$ | async)?.rol ==='4'"></app-capture-->
   <app-capture *ngIf="visibilidadCapture"></app-capture>
+  <app-lista-patentes  *ngIf="visibilidadListaPatentes"></app-lista-patentes>
 </div>
 <app-footer></app-footer>

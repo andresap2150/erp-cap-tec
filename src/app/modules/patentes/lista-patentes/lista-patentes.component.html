@@ -1,0 +1,84 @@
+<!--<div class=lista-patentes-comp>
+
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-body">
+                <span class="h3">Listado sitios web patentación tecnológica</span>
+                <button class="btn btn-dark btn-lg float-right" routerLink="/create-asset">Agregar</button>
+                <table class="table table-striped mt-5">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Url sitio web</th>
+                        <th>Descripcion de patente</th> 
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td><i class="fas fa-edit fa-lg text-info mr-2"></i>
+                            <i class="fas fa-trash-alt fa-lg text danger"></i>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td><i class="fas fa-edit fa-lg text-info mr-2"></i>
+                            <i class="fas fa-trash-alt fa-lg text danger"></i>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+
+<div class=lista-patentes-comp>
+    <div class="add-activos-cont" [formGroup]="listapatentesForm">
+      <mat-form-field>
+        <input matInput placeholder="Id URL sitio web" formControlName="id_urlwebsite" required>
+        <mat-error *ngIf="listapatentesForm?.get('id_urlwebsite')?.invalid">{{getErrorMessage('id_urlwebsite', '')}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="URL patente sitio web" formControlName="path_urlwebsite" required>
+        <mat-error *ngIf="listapatentesForm?.get('path_urlwebsite')?.invalid">{{getErrorMessage('path_urlwebsite', '')}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Descripción patente sitio web" formControlName="desc_urlwebsite" required>
+        <mat-error *ngIf="listapatentesForm?.get('desc_urlwebsite')?.invalid">{{getErrorMessage('desc_urlwebsite', '')}}</mat-error>
+      </mat-form-field>
+
+      <button mat-icon-button (click)="saveListaPatentesOnDB()"><mat-icon>note_add</mat-icon></button>
+    </div>
+  
+    <div class="example-container mat-elevation-z8">
+      <mat-table #table [dataSource]="listapatentes$">
+        <ng-container matColumnDef="id_urlwebsite">
+            <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+            <mat-cell *matCellDef="let ListaPatentes">{{ListaPatentes.id_urlwebsite}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="path_urlwebsite">
+            <mat-header-cell *matHeaderCellDef>URL patente Sitio web</mat-header-cell>
+            <mat-cell *matCellDef="let ListaPatentes">{{ListaPatentes.path_urlwebsite</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="desc_urlwebsite">
+            <mat-header-cell *matHeaderCellDef>Descripción patente sitio web</mat-header-cell>
+            <mat-cell *matCellDef="let ListaPatentes">{{ListaPatentes.desc_urlwebsite</mat-cell>
+        </ng-container>     
+  	  
+        <ng-container matColumnDef="accion">
+            <mat-header-cell *matHeaderCellDef>Acción</mat-header-cell>
+            <mat-cell *matCellDef="let ListaPatentes">
+              <button mat-icon-button (click)="deleteListaPatentesOnDB(ListaPatentes.id)"><mat-icon>delete</mat-icon></button>
+            </mat-cell>
+        </ng-container>        
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    <div>
+  </div>

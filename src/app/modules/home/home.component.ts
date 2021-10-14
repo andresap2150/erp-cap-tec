@@ -14,17 +14,23 @@ import { User } from '../core/auth.service';
 export class HomeComponent implements OnInit {
   public user$: Subject<User>;
   public visibilidadCapture = false;
+  public visibilidadListaPatentes = false;
 
   constructor(private auth : AuthService) { }
 
   ngOnInit(): void {
-  	this.user$ = this.auth.user$;
+    this.user$ = this.auth.user$;
   }
 
   barraNavegacionListener($event){
-  	if($event === 'capturaactivo'){
-  		console.log("voy a mostar el capture");
-  		this.visibilidadCapture = true;
-  	}
+    if($event === 'capturaactivo'){
+      this.visibilidadCapture = true;
+      this.visibilidadListaPatentes = false;
+    }
+    if($event === 'listapatentes'){
+      console.log("lista pantentes")
+      this.visibilidadCapture = false;
+      this.visibilidadListaPatentes = true;
+    }
   }
 }
