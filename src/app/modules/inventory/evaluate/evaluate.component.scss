@@ -1,0 +1,31 @@
+.eval-comp{
+  position: absolute;
+  display: flex;
+  flex-direction:column;
+  top:128px;
+  width: 100%;	
+}
+
+.eval-inner{
+  /*position: absolute;*/
+  display: flex;
+}
+
+.form-row{
+  width: 100%;
+  display: flex;
+}
+
+.card-input-middle{
+  margin-top: auto;
+  margin-bottom: auto; 
+}
+
+.space-between {
+  flex:1;
+}
+
+.analize-b{
+  width: 50%;
+  margin: auto;
+}

@@ -1,0 +1,58 @@
+<div class="eval-comp">
+  <div class="eval-inner">
+    <div class="example-container mat-elevation-z6">
+      <mat-table #table [dataSource]="activos$">
+        <ng-container matColumnDef="id_activo">
+          <mat-header-cell *matHeaderCellDef>ID
+          </mat-header-cell>
+          <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.id_activo}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="nombre_activo">
+          <mat-header-cell *matHeaderCellDef>Activo</mat-header-cell>
+          <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.nombre_activo}}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="accion">
+          <mat-header-cell *matHeaderCellDef>Acción</mat-header-cell>
+          <mat-cell *matCellDef="let ativoTecnologico">
+            <button mat-icon-button (click)="startMcEvaluation(ativoTecnologico)" *ngIf=!ativoTecnologico.evaluationDone>
+              <mat-icon>edit_note</mat-icon>
+            </button>
+            <mat-icon *ngIf=ativoTecnologico.mcEvalDone>done
+            </mat-icon>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns">
+        </mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+        </mat-row>
+      </mat-table>
+    </div>
+    <mat-card class="class-card mat-elevation-z8" *ngIf="visibilidadMcEvaluar">
+      <mat-card-title>{{activoActual.nombre_activo}}</mat-card-title>
+      <mat-card-content>
+      	<div [formGroup]="mcEvalForm" class="class-act-form">
+      	  <div class=form-row>
+            <mat-label class="card-input-middle">Evaluación</mat-label>
+            <span class="space-between"></span>
+            <mat-form-field >  
+              <input matInput type="number" formControlName="mcEval" required>      
+            </mat-form-field>
+          </div>
+          <div class=form-row>
+            <mat-label class="card-input-middle">Importancia</mat-label>
+            <span class="space-between"></span>
+            <mat-form-field >  
+              <input matInput type="number" formControlName="mcImpo" required>      
+            </mat-form-field>
+          </div>
+          <br>
+      	</div>
+      	<button mat-raised-button color="primary" (click)="guardarMcEvaluation()">Guardar Evaluacion McKinsey</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <br>
+  <span class="space-between"></span>
+  <button mat-raised-button color="primary" *ngIf="visibilidadbotonMC" (click)="generarAnalisisMc()" class="analize-b">Generar Matriz McKinsey</button>
+</div>

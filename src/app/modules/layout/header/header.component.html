@@ -30,6 +30,6 @@
 <mat-menu x-position="before" #gestion="matMenu">
   <button mat-menu-item (click)="mostrarVista('capturaactivo')">Ingresar activos</button>
   <button mat-menu-item (click)="mostrarVista('clasificaactivo')">Clasificar activos</button>
-  <button mat-menu-item>Evaluar activos</button>
-  <button mat-menu-item>Realizar analisis Maclensky</button>
+  <button mat-menu-item (click)="mostrarVista('evaluaactivo')">Evaluar activos</button>
+  <button mat-menu-item (click)="mostrarVista('evaluamckinsey')">Realizar analisis Maclensky</button>
 </mat-menu>
