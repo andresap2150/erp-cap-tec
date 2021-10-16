@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivosService } from '../../core/activos.service';
 import { Validators,FormBuilder,FormGroup } from '@angular/forms';
 import { ActivoTecnologico } from '../../../models/ActivoTecnologico';
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 
 @Component({
   selector: 'app-evaluate',
@@ -14,7 +14,8 @@ export class EvaluateComponent implements OnInit {
   public activos$ : Observable<ActivoTecnologico[]>;
   public evalActivosForm : FormGroup;
   public visibilidadEvaluarActivosCard =false;
-  public visibilidadGenerarAnalisis = false;
+  public visibilidadGenerarAnalisis : Observable<boolean>;
+  public visibilidadErrorGuardar = false;
   public activoActual;
 
   constructor(private db: ActivosService, private fb: FormBuilder) { }
@@ -27,6 +28,7 @@ export class EvaluateComponent implements OnInit {
   	  infl : ['',[Validators.min(1),Validators.max(5)]],
   	  proy : ['',[Validators.min(1),Validators.max(5)]]
   	});
+    this.visibilidadGenerarAnalisis = this.db.areAllActivosEvaluated();
   }
 
 
@@ -36,16 +38,21 @@ export class EvaluateComponent implements OnInit {
   }
 
   guardarEvaluacionActivo(){
-  	console.log('vamos a guardar...');
-    //verificar si estan todo los archivos evaluados
-    //tambien hay que validar el form
-    this.visibilidadEvaluarActivosCard =false;
-    this.visibilidadGenerarAnalisis = true;
+    if(this.evalActivosForm.valid){
+      const activoEvaluado = {...this.activoActual, ...this.evalActivosForm.value, evaluationDone: true}
+      this.db.extendActivo(activoEvaluado);
+      this.visibilidadEvaluarActivosCard =false;
+      this.evalActivosForm.reset();
+    }else{
+      this.visibilidadErrorGuardar= true;
+    }
+    
   }
 
   analizar(){
     console.log('vamos a analizar...');
-    this.visibilidadGenerarAnalisis = false;
+    //this.visibilidadGenerarAnalisis$.next(false);
+    //this.visibilidadGenerarAnalisis = new Observable(a => a.next(false));
   }
 
 }

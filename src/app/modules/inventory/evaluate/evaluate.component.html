@@ -3,8 +3,7 @@
     <div class="example-container mat-elevation-z6">
       <mat-table #table [dataSource]="activos$">
         <ng-container matColumnDef="id_activo">
-          <mat-header-cell *matHeaderCellDef>ID
-          </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
           <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.id_activo}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="nombre_activo">
@@ -16,61 +15,48 @@
           <mat-header-cell *matHeaderCellDef>Acción</mat-header-cell>
           <mat-cell *matCellDef="let ativoTecnologico">
             <button mat-icon-button (click)="startEvaluation(ativoTecnologico)" *ngIf=!ativoTecnologico.evaluationDone>
-              <mat-icon>edit_note
-              </mat-icon>
+              <mat-icon>edit_note</mat-icon>
             </button>
-            <mat-icon *ngIf=ativoTecnologico.evaluationDone>done
-            </mat-icon>
+            <mat-icon *ngIf=ativoTecnologico.evaluationDone>done</mat-icon>
           </mat-cell>
         </ng-container>
-        <mat-header-row *matHeaderRowDef="displayedColumns">
-        </mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;">
-        </mat-row>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       </mat-table>
     </div>
     <mat-card class="class-card mat-elevation-z8" *ngIf="visibilidadEvaluarActivosCard">
-      <mat-card-title>{{activoActual.nombre_activo}}
-      </mat-card-title>
+      <mat-card-title>{{activoActual.nombre_activo}}</mat-card-title>
       <mat-card-content>
         <div [formGroup]="evalActivosForm" class="class-act-form">
           <div class=form-row>
-            <mat-label class="card-input-middle">Según el grado de madurez
-            </mat-label>
-            <span class="space-between">
-            </span>
+            <mat-label class="card-input-middle">Según el grado de madurez</mat-label>
+            <span class="space-between"></span>
             <mat-form-field >  
-              <input matInput type="number" formControlName="madu" required>      
+              <input matInput type="number" formControlName="madu" required min="1" max="5">      
             </mat-form-field>
           </div>
           <br>
           <div class=form-row>
-            <mat-label class="card-input-middle">Según el grado de modernidad
-            </mat-label>
-            <span class="space-between">
-            </span>
+            <mat-label class="card-input-middle">Según el grado de modernidad</mat-label>
+            <span class="space-between"></span>
             <mat-form-field>  
-              <input matInput type="number" formControlName="mode" required>
+              <input matInput type="number" formControlName="mode" required min="1" max="4">
             </mat-form-field>
           </div>
           <br>
           <div class=form-row>
-            <mat-label class="card-input-middle">Según el grado de influencia
-            </mat-label>
-            <span class="space-between">
-            </span>
+            <mat-label class="card-input-middle">Según el grado de influencia</mat-label>
+            <span class="space-between"></span>
             <mat-form-field class="card-input-middle">
-              <input matInput type="number" formControlName="infl" required>
+              <input matInput type="number" formControlName="infl" required min="1" max="5">
             </mat-form-field>
           </div>
           <br>
           <div class=form-row>
-            <mat-label class="card-input-middle">Desde el punto de vista de un proyecto
-            </mat-label>
-            <span class="space-between">
-            </span>
+            <mat-label class="card-input-middle">Desde el punto de vista de un proyecto</mat-label>
+            <span class="space-between"></span>
             <mat-form-field>
-              <input matInput type="number" formControlName="proy" required>
+              <input matInput type="number" formControlName="proy" required min="1" max="5">
             </mat-form-field>
           </div>
           <br>

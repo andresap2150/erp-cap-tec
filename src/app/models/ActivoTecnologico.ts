@@ -6,4 +6,5 @@ export interface ActivoTecnologico {
   desc_activo?: string;
   image?: string;
   cant: number;
+  evaluationDone: boolean;
 }

@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore,DocumentReference,DocumentData  } from '@angular/fire/compat/firestore'
+import { AngularFirestore,DocumentReference,DocumentData, AngularFirestoreCollection} from '@angular/fire/compat/firestore'
+
 import { ActivoTecnologico } from '../../models/ActivoTecnologico'
-import { throwError } from "rxjs";
-import { catchError, map } from "rxjs/operators";
+import { throwError,Observable,Subject,of } from "rxjs";
+import { catchError, map, every,filter,tap } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActivosService {
-
+  public activos;
   //activos : ActivoTecnologico[];
 
   constructor(private afStore: AngularFirestore) { }
@@ -35,7 +36,7 @@ export class ActivosService {
   	})
   }
 
-  getActivosCollections(){
+  getActivosCollections(): AngularFirestoreCollection<ActivoTecnologico>{
   	return this.afStore.collection("activos")
   }
 
@@ -46,5 +47,17 @@ export class ActivosService {
   extendActivo(data){
     console.log("se va a actualizar..",data);
     return this.getActivosCollections().doc(data.id).update(data);
+  }
+
+  areAllActivosEvaluated(){
+    return this.getActivosCollections().valueChanges()
+    .pipe(
+      map(a => a.map(b => b["evaluationDone"])),
+      every(a => (a.every(ev=> ev===true))===true )
+    )
+  }
+
+  async getActivosCollectionsPromise(): Promise<AngularFirestoreCollection<ActivoTecnologico>>{
+    return this.afStore.collection("activos")
   }
 }
