@@ -70,4 +70,27 @@
   <span class="space-between"></span>
   <button mat-raised-button color="primary" *ngIf="visibilidadGenerarAnalisis" (click)="analizar()" class="analize-b">Analizar
   </button>
+  <div class="example-container mat-elevation-z6" *ngIf="visibilidadTablaP">
+    <mat-table #table [dataSource]="avgmod">
+      <ng-container matColumnDef="modeSum">
+        <mat-header-cell *matHeaderCellDef>Promedio Modernidad</mat-header-cell>
+        <mat-cell *matCellDef="let prom">{{prom.modeSum}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="maduSum">
+        <mat-header-cell *matHeaderCellDef>Promedio Madurez</mat-header-cell>
+        <mat-cell *matCellDef="let prom">{{prom.maduSum}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="inflSum">
+        <mat-header-cell *matHeaderCellDef>Promedio Influencia</mat-header-cell>
+        <mat-cell *matCellDef="let prom">{{prom.inflSum}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="proySum">
+        <mat-header-cell *matHeaderCellDef>Promedio Importancia Proyecto</mat-header-cell>
+        <mat-cell *matCellDef="let prom">{{prom.proySum}}</mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumnseAna"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumnseAna;"></mat-row>
+    </mat-table>
+  </div>
+
 </div>

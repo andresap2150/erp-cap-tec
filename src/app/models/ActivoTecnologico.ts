@@ -7,4 +7,8 @@ export interface ActivoTecnologico {
   image?: string;
   cant: number;
   evaluationDone: boolean;
+  madu: number;
+  mode: number;
+  infl: number;
+  proy: number;
 }
