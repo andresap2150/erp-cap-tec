@@ -3,7 +3,6 @@ import { ActivosService } from '../../core/activos.service';
 import { Validators,FormBuilder,FormGroup } from '@angular/forms';
 import { ActivoTecnologico } from '../../../models/ActivoTecnologico';
 import { Observable, of, Subject } from "rxjs";
-import { ContentObserver } from '@angular/cdk/observers';
 
 @Component({
   selector: 'app-evaluate',
@@ -11,19 +10,19 @@ import { ContentObserver } from '@angular/cdk/observers';
   styleUrls: ['./evaluate.component.scss']
 })
 export class EvaluateComponent implements OnInit {
-  public displayedColumns = ['id_activo', 'nombre_activo','accion'];
-  public displayedColumnseAna = ['modeSum','maduSum','inflSum','proySum'];
+  public displayedColumns = ['id_activo', 'nombre_activo','accion'];  
+  public displayedColumnseAnaPr = ['modeSum','maduSum','inflSum','proySum'];
+  public displayedColumnsAna = ['id_activo','nombre_activo','mode','madu','infl','proy'];
+
   public activos$ : Observable<ActivoTecnologico[]>;
   public evalActivosForm : FormGroup;
   public visibilidadEvaluarActivosCard =false;
   public visibilidadGenerarAnalisis : Observable<boolean>;
   public visibilidadErrorGuardar = false;
   public visibilidadTablaP = false
+  public visibilidadTablaE = true;
   public activoActual;
   public avgmod;
-
-  //public test = of([{modeSum:2}])
-  public test = [{modeSum:2}]
 
   constructor(private db: ActivosService, private fb: FormBuilder) {
     
@@ -38,15 +37,13 @@ export class EvaluateComponent implements OnInit {
   	  proy : ['',[Validators.min(1),Validators.max(5)]]
   	});
     this.visibilidadGenerarAnalisis = this.db.areAllActivosEvaluated();    
-    this.db.getAverageEvaluation().subscribe(a=>{return a}); 
-      
+    this.db.getAverageEvaluation().subscribe(a=>{return a});     
   }
 
 
   startEvaluation(activo){
     this.activoActual = activo;
-    this.visibilidadEvaluarActivosCard = true;
-    
+    this.visibilidadEvaluarActivosCard = true;  
   }
 
   guardarEvaluacionActivo(){
@@ -61,12 +58,8 @@ export class EvaluateComponent implements OnInit {
   }
 
   analizar(){
-    console.log('vamos a analizar...');
+    this.visibilidadTablaE = false;
     this.avgmod = this.db.getPromedios();  
-    console.log("pr",this.db.promedios)
-    console.log("av",this.avgmod)
     this.visibilidadTablaP = true;
-    //this.visibilidadGenerarAnalisis$.next(false);
-    //this.visibilidadGenerarAnalisis = new Observable(a => a.next(false));
   }
 }
