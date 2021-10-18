@@ -66,24 +66,24 @@ export class ActivosService {
     const seed = {modeSum: 0, maduSum: 0, inflSum: 0, proySum: 0};
     const source = this.getActivosCollections().valueChanges();
     return source.pipe(
-      reduce((acc, cur) => {
+      tap(acc => {
         let sum, sumMad, sumInf, sumPro;
         [sum, sumMad, sumInf, sumPro] = [0, 0, 0, 0];
-        for (let i = 0; i < cur.length; i++) {
-          sum += cur[i].mode;
-          sumMad += cur[i].madu;
-          sumInf += cur[i].infl;
-          sumPro += cur[i].proy;
+        for (let i = 0; i < acc.length; i++) {
+          sum += acc[i].mode;
+          sumMad += acc[i].madu;
+          sumInf += acc[i].infl;
+          sumPro += acc[i].proy;
         }
-        console.log('actual', cur);
-        const modeSum = sum + acc.modeSum;
-        const maduSum = sumMad + acc.maduSum;
-        const inflSum = sumInf + acc.inflSum;
-        const proySum = sumPro + acc.proySum;
+        console.log('actual', acc);
+        const modeSum = sum/acc.length;
+        const maduSum = sumMad/acc.length;
+        const inflSum = sumInf/acc.length;
+        const proySum = sumPro/acc.length;
         const promOb = { modeSum, maduSum, inflSum, proySum };
         this.setPromedios(modeSum,maduSum,inflSum,proySum)
         return { modeSum, maduSum, inflSum, proySum };
-      }, seed),
+      }),
       catchError(e => throwError(e))
     );
   }
