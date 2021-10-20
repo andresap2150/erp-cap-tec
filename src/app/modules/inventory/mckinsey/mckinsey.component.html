@@ -1,6 +1,6 @@
 <div class="eval-comp">
   <div class="eval-inner">
-    <div class="example-container mat-elevation-z6">
+    <div class="example-container mat-elevation-z6" *ngIf="visibilidadTbIni">
       <mat-table #table [dataSource]="activos$">
         <ng-container matColumnDef="id_activo">
           <mat-header-cell *matHeaderCellDef>ID
@@ -54,7 +54,7 @@
   <br>
   <span class="space-between"></span>
   <button mat-raised-button color="primary" *ngIf="visibilidadbotonMC" (click)="generarAnalisisMc()" class="analize-b">Generar Matriz McKinsey</button>
-  <div>
+  <div *ngIf="visibilidadChart">
     <canvas class="chartjs-container" baseChart
         [datasets]="bubbleChartData" 
         [options]="bubbleChartOptions"

@@ -16,50 +16,15 @@ export class MckinseyComponent implements OnInit {
   public activos$ : Observable<ActivoTecnologico[]>;
   public visibilidadMcEvaluar = false;
   public visibilidadbotonMC = false;
+  public visibilidadTbIni = true;
+  public visibilidadChart = false;
   public mcEvalForm : FormGroup;
   public activoActual;
-
-  //variables del chart
-  bubbleChartOptions: ChartOptions = {
-    responsive: false,
-    scales: {
-      xAxes: [
-        {
-          ticks: {
-            min: 1,
-            max: 5,
-          }
-        }
-      ],
-      yAxes: [
-        {
-          ticks: {
-            min: 1,
-            max: 3,
-          }
-        }
-      ]
-    }
-  };
+  public bubbleChartData : ChartDataSets[];
+  public bubbleChartOptions : ChartOptions; 
+  public bubbleChartOptionsalter : ChartDataSets[]; 
   bubbleChartLegend = true;
-  bubbleChartData: ChartDataSets[] = [
-    {
-      data: [
-        { x: 3, y: 3, r: 10  },
-        { x: 4, y: 2, r: 10  },
-      ],
-      label: 'ACT-001'
-    },
-    {
-      data: [
-        { x: 1, y: 1, r: 10 },
-        { x: 2, y: 2, r: 10  },
-        { x: 5, y: 3, r: 10  },
-      ],
-      label: 'ACT-002'
-    },
-
-  ];
+  
 
   constructor(private db: ActivosService, private fb: FormBuilder) { }
 
@@ -87,10 +52,68 @@ export class MckinseyComponent implements OnInit {
       this.visibilidadbotonMC = true;
       this.mcEvalForm.reset()
     }
+    this.visibilidadbotonMC = true;
+    
   }
 
   generarAnalisisMc(){
+    this.createChartData();
     this.visibilidadbotonMC = false;
+    this.visibilidadTbIni = false;
+    this.visibilidadChart = true;
   }
 
+  createChartData(){    
+    this.bubbleChartOptionsalter = [
+      {
+        data: [
+          { x: 3, y: 3, r: 10  },
+          { x: 4, y: 2, r: 10  },
+        ],
+        label: 'ACT-001'
+      },
+      {
+        data: [
+          { x: 1, y: 1, r: 10 },
+          { x: 2, y: 2, r: 10  },
+          { x: 5, y: 3, r: 10  },
+        ],
+        label: 'ACT-002'
+      }  
+    ];
+
+    this.bubbleChartOptions = {
+      responsive: false,
+      scales: {
+        xAxes: [
+          {
+            ticks: {
+              min: 1,
+              max: 3,
+            }
+          }
+        ],
+        yAxes: [
+          {
+            ticks: {
+              min: 1,
+              max: 3,
+            }
+          }
+        ]
+      }
+    };
+
+    this.bubbleChartData = [];
+    this.activos$.subscribe((a:ActivoTecnologico[]) =>{
+      console.log(a)
+      a.forEach(ac =>{
+        const yval = ((ac.mcEval)/5)*3; 
+        const data = [{x:ac.mcImpo, y:yval, r:20}];
+        const label = ac.id_activo;
+        const axl = {data,label};
+        this.bubbleChartData.push(axl);
+      });
+    });  
+  }
 }

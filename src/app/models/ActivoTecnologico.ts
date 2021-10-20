@@ -12,4 +12,6 @@ export interface ActivoTecnologico {
   infl: number;
   proy: number;
   mcEvalDone : boolean;
+  mcEval: number;
+  mcImpo: number;
 }
