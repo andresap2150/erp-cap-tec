@@ -15,11 +15,10 @@
         <ng-container matColumnDef="accion">
           <mat-header-cell *matHeaderCellDef>Acción</mat-header-cell>
           <mat-cell *matCellDef="let ativoTecnologico">
-            <button mat-icon-button (click)="startMcEvaluation(ativoTecnologico)" *ngIf=!ativoTecnologico.evaluationDone>
+            <button mat-icon-button (click)="startMcEvaluation(ativoTecnologico)" *ngIf=!ativoTecnologico.mcEvalDone>
               <mat-icon>edit_note</mat-icon>
             </button>
-            <mat-icon *ngIf=ativoTecnologico.mcEvalDone>done
-            </mat-icon>
+            <mat-icon *ngIf=ativoTecnologico.mcEvalDone>done</mat-icon>
           </mat-cell>
         </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns">
@@ -55,4 +54,13 @@
   <br>
   <span class="space-between"></span>
   <button mat-raised-button color="primary" *ngIf="visibilidadbotonMC" (click)="generarAnalisisMc()" class="analize-b">Generar Matriz McKinsey</button>
+  <div>
+    <canvas class="chartjs-container" baseChart
+        [datasets]="bubbleChartData" 
+        [options]="bubbleChartOptions"
+        [legend]="bubbleChartLegend" 
+        chartType=bubble 
+        height=737 width=1058>
+    </canvas>
+  </div>
 </div>

@@ -11,4 +11,5 @@ export interface ActivoTecnologico {
   mode: number;
   infl: number;
   proy: number;
+  mcEvalDone : boolean;
 }

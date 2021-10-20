@@ -36,6 +36,9 @@ export class ActivosService {
   	const timestamp = new Date().getTime();
   	return this.getActivosCollections().add({
   	  ...data,
+      calificationDone: false,
+      evaluationDone: false,
+      mcEvalDone: false,
   	  fec_pub : timestamp
   	})
   }
