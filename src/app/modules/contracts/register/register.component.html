@@ -1,0 +1,55 @@
+<div class="register-comp">
+  <mat-card>
+    <mat-card-title>Crear contrato colaborador Clave</mat-card-title>
+    <mat-card-content>
+      <div [formGroup]="contratoForm">
+        <div class=form-row>
+          <mat-label>El colaborador clave</mat-label>
+          <span class="space-between"></span>
+          <mat-form-field>
+            <input matInput placeholder="Nombre" formControlName="nombreCol">
+            <!--mat-error *ngIf="loginForm?.get('email')?.invalid">{{getErrorMessage('email', 'email')}}</mat-error-->
+          </mat-form-field>
+        </div>
+        <div class=form-row>
+          <mat-label>con el cargo</mat-label>  
+          <span class="space-between"></span>
+          <mat-form-field>
+            <input matInput placeholder="Cargo" formControlName="cargoCol">
+            <!--mat-error *ngIf="loginForm?.get('email')?.invalid">{{getErrorMessage('email', 'email')}}</mat-error-->
+          </mat-form-field>  
+        </div>
+        <div class=form-row>
+          <mat-label>identificado con</mat-label>  
+          <mat-form-field>  
+            <mat-select formControlName="tipoIdCol" required>
+              <mat-option>Cedula de Ciudadania</mat-option>
+              <mat-option>Tarjeta de Identidad</mat-option>
+              <mat-option>Cedula de Extranjería</mat-option>
+              <mat-option>Pasaporte</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Identificación" formControlName="idCol">
+            <!--mat-error *ngIf="loginForm?.get('email')?.invalid">{{getErrorMessage('email', 'email')}}</mat-error-->
+          </mat-form-field>  
+        </div>
+        <div class=form-row>
+          <mat-label>Cargar contrato</mat-label>
+          <input type="file" (change)="upload($event)" accept=".pdf" />
+        </div>
+        <div class=form-row style="height: 80;">
+            <mat-label>Tiene la clausula:</mat-label>
+            <textarea matInput placeholder="copie aqui la clausula de proteccion tecnologica" formControlName="clausulaProte"></textarea>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-content>
+      <button mat-icon-button>Guardar Contrato</button>
+    </mat-card-content>
+  </mat-card>
+
+    <div>
+      <button (click)="uploadCont()">Upload Image</button>
+    </div>
+</div>

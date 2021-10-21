@@ -5,7 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { HomeRoutingModule } from './home-routing.module';
 import { CaptureModule } from '../inventory/capture/capture.module';
 import { ClassifyModule } from '../inventory/classify/classify.module';
-
+import { RegisterModule } from '../contracts/register/register.module';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -14,7 +14,8 @@ import { ClassifyModule } from '../inventory/classify/classify.module';
     LayoutModule,
     HomeRoutingModule,
     CaptureModule,
-    ClassifyModule
+    ClassifyModule,
+    RegisterModule
   ]
 })
 export class HomeModule { }

@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   public user$: Subject<User>;
   public visibilidadCapture = false;
   public visibilidadClassify = false;
+  public visibilidadCcontrato = false;
 
   constructor(private auth : AuthService) { }
 
@@ -26,10 +27,18 @@ export class HomeComponent implements OnInit {
   	if($event === 'capturaactivo'){
   		this.visibilidadCapture = true;
       this.visibilidadClassify = false;
+      this.visibilidadCcontrato = false;
   	}
     if($event === 'clasificaactivo'){
       this.visibilidadClassify = true;
       this.visibilidadCapture = false;
+      this.visibilidadCcontrato = false;
+    }
+
+    if($event==='cargacontrato'){
+      this.visibilidadCapture = false;
+      this.visibilidadClassify = false;
+      this.visibilidadCcontrato = true;
     }
   }
 }

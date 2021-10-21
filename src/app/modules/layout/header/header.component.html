@@ -19,8 +19,8 @@
   <!--<button mat-menu-item>Add Note</button>-->
 </mat-menu>
 <mat-menu x-position="before" #contratos="matMenu">
-  <button mat-menu-item>Cargar contratos</button>
-  <button mat-menu-item>Ver clausulas</button>
+  <button mat-menu-item (click)="mostrarVista('cargacontrato')">Cargar contratos</button>
+  <button mat-menu-item>Ver Todos</button>
 </mat-menu>
 <mat-menu x-position="before" #patentes="matMenu">
   <button mat-menu-item>Ver enlaces</button>
