@@ -19,6 +19,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 
+import { ChartsModule } from 'ng2-charts';
+
 
 const SHARED_MODULES = [
   CommonModule,
@@ -38,7 +40,8 @@ const SHARED_MODULES = [
   FormsModule,
   MatTableModule,
   MatRadioModule,
-  MatSelectModule
+  MatSelectModule,
+  ChartsModule
 ];
 
 const SHARED_COMPONENTS = [];

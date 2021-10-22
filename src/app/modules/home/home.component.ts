@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
   public user$: Subject<User>;
   public visibilidadCapture = false;
   public visibilidadClassify = false;
+  public visibilidadEvaluate = false;
+  public visibilidadMckinsey = false;
 
   constructor(private auth : AuthService) { }
 
@@ -26,10 +28,26 @@ export class HomeComponent implements OnInit {
   	if($event === 'capturaactivo'){
   		this.visibilidadCapture = true;
       this.visibilidadClassify = false;
+      this.visibilidadEvaluate = false;
+      this.visibilidadMckinsey = false;
   	}
-    if($event === 'clasificaactivo'){
-      this.visibilidadClassify = true;
+    if($event === 'clasificaactivo'){      
       this.visibilidadCapture = false;
+      this.visibilidadClassify = true;
+      this.visibilidadEvaluate = false;
+      this.visibilidadMckinsey = false;
+    }
+    if($event == 'evaluaactivo'){
+      this.visibilidadCapture = false;
+      this.visibilidadClassify = false;
+      this.visibilidadEvaluate = true;
+      this.visibilidadMckinsey = false;
+    }
+    if($event == 'evaluamckinsey'){      
+      this.visibilidadCapture = false;
+      this.visibilidadClassify = false;
+      this.visibilidadEvaluate = false;
+      this.visibilidadMckinsey = true;
     }
   }
 }
