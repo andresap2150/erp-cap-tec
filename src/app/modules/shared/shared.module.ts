@@ -15,6 +15,12 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 
+import { MatTableModule } from '@angular/material/table';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
+
+import { ChartsModule } from 'ng2-charts';
+
 
 const SHARED_MODULES = [
   CommonModule,
@@ -31,7 +37,11 @@ const SHARED_MODULES = [
   RouterModule,
   MatFormFieldModule,
   ReactiveFormsModule,
-  FormsModule
+  FormsModule,
+  MatTableModule,
+  MatRadioModule,
+  MatSelectModule,
+  ChartsModule
 ];
 
 const SHARED_COMPONENTS = [];

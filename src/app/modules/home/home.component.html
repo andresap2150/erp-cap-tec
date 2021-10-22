@@ -1,7 +1,9 @@
-<!--<div class="appress-pwa-note">-->
-  <app-header></app-header>
-  <!--<div class="main"> 
-    <router-outlet></router-outlet>
-  </div>-->
-  <app-footer></app-footer>
-<!--/div-->
+<div class=home-layout>
+  <app-header (messageEvent)="barraNavegacionListener($event)"></app-header>
+  <!--app-capture *ngIf="(user$ | async)?.rol ==='4'"></app-capture-->
+  <app-capture *ngIf="visibilidadCapture"></app-capture>
+  <app-classify *ngIf="visibilidadClassify"></app-classify>
+  <app-evaluate *ngIf="visibilidadEvaluate"></app-evaluate>
+  <app-mckinsey *ngIf="visibilidadMckinsey"></app-mckinsey>
+</div>
+<app-footer></app-footer>

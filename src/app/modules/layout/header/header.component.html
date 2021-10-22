@@ -1,12 +1,35 @@
 <mat-toolbar class="titulo" color="primary">
-  <span>ERP Capacidades Tecnológicas</span>
-  <span class="space-between"></span>
-  <button mat-icon-button [mat-menu-trigger-for]="menu">
-    <mat-icon>more_vert</mat-icon>
-  </button>
+  <mat-toolbar-row>
+  	<span>ERP Capacidades Tecnológicas</span>
+  	<span class="space-between"></span>
+  	<button mat-icon-button [mat-menu-trigger-for]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <button mat-menu-item class="barra-usr" [mat-menu-trigger-for]="contratos">Contratos</button>
+    <button mat-menu-item class="barra-usr" [mat-menu-trigger-for]="patentes">Patentes</button>
+    <button mat-menu-item class="barra-usr" [mat-menu-trigger-for]="gestion">Gestion Técnologica</button>
+    <button mat-menu-item class="barra-usr">Ver procesos</button>
+  </mat-toolbar-row>
 </mat-toolbar>
 <mat-menu x-position="before" #menu="matMenu">
   <button mat-menu-item>Home</button>
   <button mat-menu-item>Perfil</button>
   <!--<button mat-menu-item>Add Note</button>-->
+</mat-menu>
+<mat-menu x-position="before" #contratos="matMenu">
+  <button mat-menu-item>Cargar contratos</button>
+  <button mat-menu-item>Ver clausulas</button>
+</mat-menu>
+<mat-menu x-position="before" #patentes="matMenu">
+  <button mat-menu-item>Ver enlaces</button>
+  <button mat-menu-item>Resgistrar patentes</button>
+  <button mat-menu-item>Ver patentes registradas</button>
+</mat-menu>
+<mat-menu x-position="before" #gestion="matMenu">
+  <button mat-menu-item (click)="mostrarVista('capturaactivo')">Ingresar activos</button>
+  <button mat-menu-item (click)="mostrarVista('clasificaactivo')">Clasificar activos</button>
+  <button mat-menu-item (click)="mostrarVista('evaluaactivo')">Evaluar activos</button>
+  <button mat-menu-item (click)="mostrarVista('evaluamckinsey')">Realizar analisis Maclensky</button>
 </mat-menu>
