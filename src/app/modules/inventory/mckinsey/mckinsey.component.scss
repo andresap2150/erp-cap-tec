@@ -1,0 +1,37 @@
+.eval-comp{
+  position: absolute;
+  display: flex;
+  flex-direction:column;
+  top:128px;
+  width: 100%;	
+}
+
+.eval-inner{
+  /*position: absolute;*/
+  display: flex;
+}
+
+.form-row{
+  width: 100%;
+  display: flex;
+}
+
+.card-input-middle{
+  margin-top: auto;
+  margin-bottom: auto; 
+}
+
+.space-between {
+  flex:1;
+}
+
+.analize-b{
+  width: 50%;
+  margin: auto;
+}
+
+.chartjs-container{
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/awesome-apress-pwa-11a03.appspot.com/o/dev%2FImgFondoMcKinsey.png?alt=media&token=d5bccdcb-7136-4c97-8bf6-54dd0449e392");
+  background-repeat: no-repeat;
+  background-position: center;
+}

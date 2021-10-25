@@ -16,6 +16,8 @@ export class HomeComponent implements OnInit {
   public visibilidadCapture = false;
   public visibilidadClassify = false;
   public visibilidadCcontrato = false;
+  public visibilidadEvaluate = false;
+  public visibilidadMckinsey = false;
 
   constructor(private auth : AuthService) { }
 
@@ -28,17 +30,36 @@ export class HomeComponent implements OnInit {
   		this.visibilidadCapture = true;
       this.visibilidadClassify = false;
       this.visibilidadCcontrato = false;
+      this.visibilidadEvaluate = false;
+      this.visibilidadMckinsey = false;
   	}
-    if($event === 'clasificaactivo'){
-      this.visibilidadClassify = true;
+    if($event === 'clasificaactivo'){      
       this.visibilidadCapture = false;
+      this.visibilidadClassify = true;
       this.visibilidadCcontrato = false;
+      this.visibilidadEvaluate = false;
+      this.visibilidadMckinsey = false;
     }
-
+    if($event == 'evaluaactivo'){
+      this.visibilidadCapture = false;
+      this.visibilidadClassify = false;
+      this.visibilidadCcontrato = false;
+      this.visibilidadEvaluate = true;
+      this.visibilidadMckinsey = false;
+    }
+    if($event == 'evaluamckinsey'){      
+      this.visibilidadCapture = false;
+      this.visibilidadClassify = false;
+      this.visibilidadCcontrato = false;
+      this.visibilidadEvaluate = false;
+      this.visibilidadMckinsey = true;
+    }
     if($event==='cargacontrato'){
       this.visibilidadCapture = false;
       this.visibilidadClassify = false;
       this.visibilidadCcontrato = true;
+      this.visibilidadEvaluate = true;
+      this.visibilidadMckinsey = false;      
     }
   }
 }
