@@ -32,4 +32,10 @@ export class RegisterComponent implements OnInit {
     this.cs.uploadContract(this.contractFPath);
   }
 
+  saveContractOnDb(){
+    console.log("se va a guardar");
+    this.uploadCont();
+    this.cs.addContract(this.contratoForm.value);    
+  }
+
 }
