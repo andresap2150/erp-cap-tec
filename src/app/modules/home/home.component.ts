@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   public user$: Subject<User>;
   public visibilidadCapture = false;
   public visibilidadClassify = false;
+  public visibilidadCcontrato = false;
   public visibilidadEvaluate = false;
   public visibilidadMckinsey = false;
 
@@ -28,26 +29,37 @@ export class HomeComponent implements OnInit {
   	if($event === 'capturaactivo'){
   		this.visibilidadCapture = true;
       this.visibilidadClassify = false;
+      this.visibilidadCcontrato = false;
       this.visibilidadEvaluate = false;
       this.visibilidadMckinsey = false;
   	}
     if($event === 'clasificaactivo'){      
       this.visibilidadCapture = false;
       this.visibilidadClassify = true;
+      this.visibilidadCcontrato = false;
       this.visibilidadEvaluate = false;
       this.visibilidadMckinsey = false;
     }
-    if($event == 'evaluaactivo'){
+    if($event === 'evaluaactivo'){
       this.visibilidadCapture = false;
       this.visibilidadClassify = false;
+      this.visibilidadCcontrato = false;
       this.visibilidadEvaluate = true;
       this.visibilidadMckinsey = false;
     }
-    if($event == 'evaluamckinsey'){      
+    if($event === 'evaluamckinsey'){      
       this.visibilidadCapture = false;
       this.visibilidadClassify = false;
+      this.visibilidadCcontrato = false;
       this.visibilidadEvaluate = false;
       this.visibilidadMckinsey = true;
+    }
+    if($event === 'cargacontrato'){
+      this.visibilidadCapture = false;
+      this.visibilidadClassify = false;
+      this.visibilidadCcontrato = true;
+      this.visibilidadEvaluate = false;
+      this.visibilidadMckinsey = false;      
     }
   }
 }

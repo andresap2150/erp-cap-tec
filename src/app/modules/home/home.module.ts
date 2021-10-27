@@ -5,8 +5,9 @@ import { SharedModule } from '../shared/shared.module';
 import { HomeRoutingModule } from './home-routing.module';
 import { CaptureModule } from '../inventory/capture/capture.module';
 import { ClassifyModule } from '../inventory/classify/classify.module';
+import { RegisterModule } from '../contracts/register/register.module';
 import { EvaluateModule } from '../inventory/evaluate/evaluate.module';
-import { MckinseyModule } from '../inventory/mckinsey/mckinsey.module'
+import { MckinseyModule } from '../inventory/mckinsey/mckinsey.module';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { MckinseyModule } from '../inventory/mckinsey/mckinsey.module'
     HomeRoutingModule,
     CaptureModule,
     ClassifyModule,
+    RegisterModule,
     EvaluateModule,
     MckinseyModule
   ]
