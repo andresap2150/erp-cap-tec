@@ -34,6 +34,7 @@ export class RegisterComponent implements OnInit {
   }
 
   saveContractOnDb(){
+    this.uploadCont();
     this.checkFormValidity(this.cs.addContract(this.contratoForm.value));
     this.contratoForm.reset();
   }
