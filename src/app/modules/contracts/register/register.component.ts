@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ContractsService } from './../../core/contracts.service';
 
 @Component({
@@ -15,12 +15,13 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.contratoForm = this.fb.group({
-      nombreCol : [''],
-      cargoCol : [''],
-      tipoIdCol : [''],
-      idCol: [''],
-      filepath : [''],
-      clausulaProte : ['']
+      nombreCol : ['',Validators.required],
+      cargoCol : ['',Validators.required],
+      tipoIdCol : ['',Validators.required],
+      idCol: ['',Validators.required],
+      filepath : ['',Validators.required],
+      clausulaProte : ['',Validators.required],
+      vencimiento : ['', Validators.required]
     })
   }
 
@@ -33,9 +34,15 @@ export class RegisterComponent implements OnInit {
   }
 
   saveContractOnDb(){
-    console.log("se va a guardar");
-    this.uploadCont();
-    this.cs.addContract(this.contratoForm.value);    
+    this.checkFormValidity(this.cs.addContract(this.contratoForm.value));
+    this.contratoForm.reset();
   }
 
+  private checkFormValidity(cb) {
+    if (this.contratoForm.valid) {
+      cb();
+    } else {
+      console.log("debe ingresar todos los datos requeridos")
+    }
+  }
 }

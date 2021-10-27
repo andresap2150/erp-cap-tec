@@ -7,7 +7,7 @@
           <mat-label>El colaborador clave</mat-label>
           <span class="space-between"></span>
           <mat-form-field>
-            <input matInput placeholder="Nombre" formControlName="nombreCol">
+            <input matInput placeholder="Nombre" formControlName="nombreCol" required>
             <!--mat-error *ngIf="loginForm?.get('email')?.invalid">{{getErrorMessage('email', 'email')}}</mat-error-->
           </mat-form-field>
         </div>
@@ -15,7 +15,7 @@
           <mat-label>con el cargo</mat-label>  
           <span class="space-between"></span>
           <mat-form-field>
-            <input matInput placeholder="Cargo" formControlName="cargoCol">
+            <input matInput placeholder="Cargo" formControlName="cargoCol" required>
             <!--mat-error *ngIf="loginForm?.get('email')?.invalid">{{getErrorMessage('email', 'email')}}</mat-error-->
           </mat-form-field>  
         </div>
@@ -30,26 +30,30 @@
             </mat-select>
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Identificación" formControlName="idCol">
+            <input matInput placeholder="Identificación" formControlName="idCol" required>
             <!--mat-error *ngIf="loginForm?.get('email')?.invalid">{{getErrorMessage('email', 'email')}}</mat-error-->
           </mat-form-field>  
         </div>
         <div class=form-row>
+          <mat-label>el cual esta vigente hasta</mat-label>
+          <mat-form-field appearance="fill">
+            <input matInput [matDatepicker]="ven" disabled>
+            <mat-datepicker-toggle matSuffix [for]="ven"></mat-datepicker-toggle>
+            <mat-datepicker #ven disabled="false"></mat-datepicker>
+          </mat-form-field>   
+        </div>
+        <div class=form-row>
           <mat-label>Cargar contrato</mat-label>
-          <input type="file" (change)="upload($event)" accept=".pdf" />
+          <input type="file" (change)="upload($event)" accept=".pdf" required/>
         </div>
         <div class=form-row style="height: 80;">
             <mat-label>Tiene la clausula:</mat-label>
-            <textarea matInput placeholder="copie aqui la clausula de proteccion tecnologica" formControlName="clausulaProte"></textarea>
+            <textarea matInput placeholder="copie aqui la clausula de proteccion tecnologica" formControlName="clausulaProte" required></textarea>
         </div>
       </div>
     </mat-card-content>
     <mat-card-content>
-      <button mat-icon-button (click)="saveContractOnDb()">Guardar Contrato</button>
+      <button mat-raised-button color="primary" (click)="saveContractOnDb()">Guardar Contrato</button>
     </mat-card-content>
   </mat-card>
-
-    <div>
-      <button (click)="uploadCont()">Upload Image</button>
-    </div>
 </div>

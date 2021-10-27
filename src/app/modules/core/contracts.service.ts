@@ -9,15 +9,12 @@ import { switchMap, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ContractsService {
-  downloadUrl$ : Observable<string> 
-  actualLocation : string
+  downloadUrl$ : Observable<string>;
 
   constructor(private afStorage: AngularFireStorage, private afStore: AngularFirestore) { }
 
   uploadContract(file){
-    console.log("se va a cargar");
     const actualD = new Date().getTime();
-    console.log("file",file)
     const fPath = '/contratos/'+actualD+file["name"];
     console.log("fpfile",fPath)
     this.downloadUrl$ = from(this.afStorage.upload(fPath, file)).pipe(
@@ -32,9 +29,7 @@ export class ContractsService {
   addContract(data){    
     const timestamp = new Date().getTime();
     console.log("time:",this.downloadUrl$);
-    this.downloadUrl$.subscribe(a => {
-      //this.setLocation(a);      
-      console.log("suscribe:",a);
+    this.downloadUrl$.subscribe(a => {     
       return this.getContractsCollections().add({
         nombre : data["nombreCol"],
         tipoId : data["tipoIdCol"],
@@ -45,11 +40,6 @@ export class ContractsService {
         rutaArchivo: a,
         fechaCreacion : timestamp
       })
-    });
-    
-  }
-
-  private setLocation(a){
-    this.actualLocation = a;
+    });    
   }
 }

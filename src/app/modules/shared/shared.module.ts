@@ -18,9 +18,10 @@ import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { MatTableModule } from '@angular/material/table';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { ChartsModule } from 'ng2-charts';
-
+import { MomentDateModule } from '@angular/material-moment-adapter';
 
 const SHARED_MODULES = [
   CommonModule,
@@ -41,7 +42,9 @@ const SHARED_MODULES = [
   MatTableModule,
   MatRadioModule,
   MatSelectModule,
-  ChartsModule
+  ChartsModule,
+  MatDatepickerModule,
+  MomentDateModule
 ];
 
 const SHARED_COMPONENTS = [];
