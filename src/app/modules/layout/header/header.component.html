@@ -20,7 +20,7 @@
 </mat-menu>
 <mat-menu x-position="before" #contratos="matMenu">
   <button mat-menu-item (click)="mostrarVista('cargacontrato')">Cargar contratos</button>
-  <button mat-menu-item>Ver Todos</button>
+  <button mat-menu-item (click)="mostrarVista('vercontratos')">Ver Todos</button>
 </mat-menu>
 <mat-menu x-position="before" #patentes="matMenu">
   <button mat-menu-item>Ver enlaces</button>

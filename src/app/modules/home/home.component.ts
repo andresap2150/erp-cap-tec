@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   public visibilidadCcontrato = false;
   public visibilidadEvaluate = false;
   public visibilidadMckinsey = false;
+  public visibilidadVContratos = false;
 
   constructor(private auth : AuthService) { }
 
@@ -32,6 +33,7 @@ export class HomeComponent implements OnInit {
       this.visibilidadCcontrato = false;
       this.visibilidadEvaluate = false;
       this.visibilidadMckinsey = false;
+      this.visibilidadVContratos = false;
   	}
     if($event === 'clasificaactivo'){      
       this.visibilidadCapture = false;
@@ -39,6 +41,7 @@ export class HomeComponent implements OnInit {
       this.visibilidadCcontrato = false;
       this.visibilidadEvaluate = false;
       this.visibilidadMckinsey = false;
+      this.visibilidadVContratos = false;
     }
     if($event === 'evaluaactivo'){
       this.visibilidadCapture = false;
@@ -46,6 +49,7 @@ export class HomeComponent implements OnInit {
       this.visibilidadCcontrato = false;
       this.visibilidadEvaluate = true;
       this.visibilidadMckinsey = false;
+      this.visibilidadVContratos = false;
     }
     if($event === 'evaluamckinsey'){      
       this.visibilidadCapture = false;
@@ -53,13 +57,23 @@ export class HomeComponent implements OnInit {
       this.visibilidadCcontrato = false;
       this.visibilidadEvaluate = false;
       this.visibilidadMckinsey = true;
+      this.visibilidadVContratos = false;
     }
     if($event === 'cargacontrato'){
       this.visibilidadCapture = false;
       this.visibilidadClassify = false;
       this.visibilidadCcontrato = true;
       this.visibilidadEvaluate = false;
-      this.visibilidadMckinsey = false;      
+      this.visibilidadMckinsey = false;  
+      this.visibilidadVContratos = false;    
+    }
+    if($event === 'vercontratos'){
+      this.visibilidadCapture = false;
+      this.visibilidadClassify = false;
+      this.visibilidadCcontrato = false;
+      this.visibilidadEvaluate = false;
+      this.visibilidadMckinsey = false;  
+      this.visibilidadVContratos = true;
     }
   }
 }
