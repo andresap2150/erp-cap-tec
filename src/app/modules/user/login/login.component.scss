@@ -1,3 +1,14 @@
+.mat-card-cvr{
+  //top:50%;
+  width:100%;
+  text-align:center;
+  position:fixed;
+}
+.login{
+  //margin:0 auto;
+  display:inline-block;
+}
+
 .login-container {
   display: flex;
   flex-direction: column;
@@ -5,3 +16,5 @@
     width: 100%;
   }
 }
+ //align-items: center;
+ //justify-content: center;
