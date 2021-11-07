@@ -2,8 +2,9 @@ import { ContentObserver } from '@angular/cdk/observers';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage  } from '@angular/fire/compat/storage';
-import { from, Observable } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { from, Observable, throwError } from 'rxjs';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
+import { Contrato } from 'src/app/models/Contrato';
 
 @Injectable({
   providedIn: 'root'
@@ -41,5 +42,19 @@ export class ContractsService {
         fechaCreacion : timestamp
       })
     });    
+  }
+
+  getTodosContratos(){
+    return this.getContractsCollections()
+      .snapshotChanges()
+      .pipe(
+        map(spsh=>
+          spsh.map(a=>{
+            const data = a.payload.doc.data() as Contrato
+            const idf = a.payload.doc.id;
+            return {idf, ...data}
+          })
+        ), catchError(e => throwError(e))
+      );
   }
 }

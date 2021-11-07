@@ -1,7 +1,21 @@
 .register-comp{
-    position: absolute;
-    display: flex;
-    flex-direction:column;
-    top:128px;
-    width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction:column;
+  top:128px;
+  width: 100%;
+}
+
+.space-between {
+  flex:1;
+}
+
+.form-row{
+  width: 100%;
+  display: flex;
+}
+
+.card-input-middle{
+  margin-top: auto;
+  margin-bottom: auto; 
 }

@@ -4,7 +4,7 @@
     <mat-card-content>
       <div [formGroup]="contratoForm">
         <div class=form-row>
-          <mat-label>El colaborador clave</mat-label>
+          <mat-label class="card-input-middle">El colaborador clave</mat-label>
           <span class="space-between"></span>
           <mat-form-field>
             <input matInput placeholder="Nombre" formControlName="nombreCol" required>
@@ -12,7 +12,7 @@
           </mat-form-field>
         </div>
         <div class=form-row>
-          <mat-label>con el cargo</mat-label>  
+          <mat-label class="card-input-middle">con el cargo</mat-label>  
           <span class="space-between"></span>
           <mat-form-field>
             <input matInput placeholder="Cargo" formControlName="cargoCol" required>
@@ -20,7 +20,7 @@
           </mat-form-field>  
         </div>
         <div class=form-row>
-          <mat-label>identificado con</mat-label>  
+          <mat-label class="card-input-middle">identificado con</mat-label>  
           <mat-form-field>  
             <mat-select formControlName="tipoIdCol" required>
               <mat-option value="Cedula de Ciudadania">Cedula de Ciudadania</mat-option>
@@ -35,7 +35,8 @@
           </mat-form-field>  
         </div>
         <div class=form-row>
-          <mat-label>el cual esta vigente hasta</mat-label>
+          <mat-label class="card-input-middle">el cual esta vigente hasta</mat-label>
+          <span class="space-between"></span>
           <mat-form-field appearance="fill">
             <input matInput [matDatepicker]="ven" disabled>
             <mat-datepicker-toggle matSuffix [for]="ven"></mat-datepicker-toggle>
@@ -44,8 +45,10 @@
         </div>
         <div class=form-row>
           <mat-label>Cargar contrato</mat-label>
+          <span class="space-between"></span>
           <input type="file" (change)="upload($event)" accept=".pdf" required/>
         </div>
+        <br>
         <div class=form-row style="height: 80;">
             <mat-label>Tiene la clausula:</mat-label>
             <textarea matInput placeholder="copie aqui la clausula de proteccion tecnologica" formControlName="clausulaProte" required></textarea>
