@@ -20,5 +20,4 @@ export class ViewAllComponent implements OnInit {
       this.contratos = a;
     })
   }
-
 }

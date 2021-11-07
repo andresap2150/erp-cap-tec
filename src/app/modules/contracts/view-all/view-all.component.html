@@ -10,7 +10,7 @@
         <br>
         {{contrato.clausula}}
         <br>
-        El cual esta vigente hasta {{contrato.fechaVigencia}}
+        El cual esta vigente hasta {{contrato.fechaVigencia | date:'dd/MM/yyyy'}}
   
         Descargue una copia del contrato <a href="{{contrato.rutaArchivo}}">aqui</a>
         </div>
