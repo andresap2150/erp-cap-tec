@@ -1,7 +1,7 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +31,19 @@ export class SecuenciasService {
   public increaseSecuencia(type){
     this.valActual++; 
     this.afStore.collection("secuencias").doc(this.idActual).update({"valor": this.valActual});
+  }
+
+  public getAsecuence(type){
+    return this.afStore.collection("secuencias", ref=> ref.where("nombre","==",type))
+    .snapshotChanges()
+    .pipe(
+      map(spsh => {
+        const secuence = spsh[0];
+        console.log("actual",secuence)
+        const sec : any = secuence.payload.doc.data();
+        return type + sec["valor"];
+      })
+    )
   }
 
 }

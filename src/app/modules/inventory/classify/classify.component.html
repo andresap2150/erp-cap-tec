@@ -52,7 +52,7 @@
           <span class="space-between"></span>
           <mat-radio-group formControlName="mp" required>
             <mat-radio-button value="blando">Blanda</mat-radio-button>
-            <mat-radio-button value="intangible">Dura</mat-radio-button>
+            <mat-radio-button value="duro">Dura</mat-radio-button>
           </mat-radio-group>
         </div>
         <br>
@@ -73,13 +73,13 @@
   <mat-card class="mat-elevation-z10" *ngIf="visibilidadCodigosInfo">
     <mat-card-title>Códigos generados</mat-card-title>
     <mat-card-content>
-      <mat-label>xxxxxx</mat-label>
+      <mat-label>{{iotCode}}</mat-label>
       <br>
-      <mat-label>xxxxxx</mat-label>
+      <mat-label>{{giCode}}</mat-label>
       <br>
-      <mat-label>xxxxxx</mat-label>
+      <mat-label>{{mpCode}}</mat-label>
       <br>
-      <mat-label>xxxxxx</mat-label>
+      <mat-label>{{utCode}}</mat-label>
       <br>
       <button mat-raised-button color="primary" (click)="guardarClasificacion()">Guardar</button>
     </mat-card-content>

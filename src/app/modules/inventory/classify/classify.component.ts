@@ -3,6 +3,9 @@ import { ActivosService } from '../../core/activos.service';
 import { Validators,FormBuilder,FormGroup } from '@angular/forms';
 import { ActivoTecnologico } from '../../../models/ActivoTecnologico';
 import { Observable } from "rxjs";
+import { SecuenciasService } from '../../core/secuencias.service';
+import { scaleService } from 'chart.js';
+import { ContentObserver } from '@angular/cdk/observers';
 
 @Component({
   selector: 'app-classify',
@@ -18,8 +21,13 @@ export class ClassifyComponent implements OnInit {
   public visibilidadCardActivos = false;
   public visibilidadCodigosInfo = false;
 
+  public iotCode = "";
+  public giCode = "";
+  public mpCode = "";
+  public utCode = "";
 
-  constructor(private db: ActivosService, private fb: FormBuilder) { }
+
+  constructor(private db: ActivosService, private fb: FormBuilder, private scService: SecuenciasService) { }
 
   ngOnInit(): void {
     this.activos$ = this.db.getTodosActivos();
@@ -33,13 +41,34 @@ export class ClassifyComponent implements OnInit {
 
   startClassification(activo){
     this.activoActual= activo;
-    console.log("se va a clasificar:",this.activoActual)
+
     this.visibilidadCardActivos = true;
     this.visibilidadCodigosInfo = false;
   }
 
   generarCodigos(){
-    //aca va el codigo para consultar la secuencia y generar los codigos de clasificacion
+    this.clasactivosForm.value["iot"] === "tangible" ? this.scService.getAsecuence("A-IT-T-").subscribe(a => this.setIotCode(a)) : this.scService.getAsecuence("A-IT-I-").subscribe(a => this.setIotCode(a))
+    this.clasactivosForm.value["mp"] === "dura" ? this.scService.getAsecuence("A-MP-D-").subscribe(a =>this.setMpCode(a)) : this.scService.getAsecuence("A-MP-B-").subscribe(a => this.setMpCode(a));
+    this.clasactivosForm.value["ut"] === "kn" ? this.scService.getAsecuence("A-UP-KH-").subscribe(a => this.setUtCode(a)) : this.scService.getAsecuence("A-UP-I-").subscribe(a => this.setUtCode(a));
+    
+    switch (this.clasactivosForm.value["gi"]){
+      case "hu":
+        this.scService.getAsecuence("A-GI-HU-").subscribe(a => this.setGiCode(a))
+        break;
+      case "in":
+        this.scService.getAsecuence("A-GI-IN-").subscribe(a => this.setGiCode(a))
+        break;
+      case "teh":
+        this.scService.getAsecuence("A-GI-TEH-").subscribe(a => this.setGiCode(a))
+        break;
+      case "tes":
+        this.scService.getAsecuence("A-GI-TES-").subscribe(a => this.setGiCode(a))
+        break;
+      case "or":
+        this.scService.getAsecuence("A-GI-OR-").subscribe(a => this.setGiCode(a))
+        break;
+    }
+
     if(this.clasactivosForm.valid){
       this.visibilidadCardActivos = false;
       this.visibilidadCodigosInfo = true;
@@ -56,5 +85,21 @@ export class ClassifyComponent implements OnInit {
     this.visibilidadCodigosInfo = false;
     this.db.extendActivo(activoClasificado);
     this.clasactivosForm.reset();
+  }
+
+  private setIotCode(code){
+    this.iotCode = code;
+  }
+
+  private setMpCode(code){
+    this.mpCode = code;
+  }
+
+  private setGiCode(code){
+    this.giCode = code;
+  }
+
+  private setUtCode(code){
+    this.utCode = code;
   }
 }
