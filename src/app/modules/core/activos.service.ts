@@ -4,7 +4,7 @@ import { AngularFirestore,DocumentReference,DocumentData, AngularFirestoreCollec
 import { ActivoTecnologico } from '../../models/ActivoTecnologico'
 import { throwError,Observable,Subject,of } from "rxjs";
 import { catchError, map, every,filter,tap,reduce, scan } from "rxjs/operators";
-import { ContentObserver } from '@angular/cdk/observers';
+import { SecuenciasService } from './secuencias.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class ActivosService {
   public promedios;
   //activos : ActivoTecnologico[];
 
-  constructor(private afStore: AngularFirestore) {
+  constructor(private afStore: AngularFirestore, private csServ: SecuenciasService) {
     this.getAverageEvaluation();
   }
 
@@ -33,14 +33,21 @@ export class ActivosService {
   }
 
   addActivos(data) {
+    console.log("al agregar el activp", data)
   	const timestamp = new Date().getTime();
-  	return this.getActivosCollections().add({
-  	  ...data,
-      calificationDone: false,
-      evaluationDone: false,
-      mcEvalDone: false,
-  	  fec_pub : timestamp
-  	})
+    this.csServ.getASecuencia("ACT-").subscribe(()=> console.log("se tiene la secuencia"));
+    this.csServ.increaseSecuencia("ACT-")
+    setTimeout(()=>{
+      return this.getActivosCollections().add({
+        ...data,
+        id_activo: this.csServ.actualSecuence,
+        calificationDone: false,
+        evaluationDone: false,
+        mcEvalDone: false,
+        fec_pub : timestamp
+      })
+    }, 1000);
+  	
   }
 
   getActivosCollections(): AngularFirestoreCollection<ActivoTecnologico>{
