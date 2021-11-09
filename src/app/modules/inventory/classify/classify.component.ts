@@ -79,12 +79,48 @@ export class ClassifyComponent implements OnInit {
   guardarClasificacion(){
     //actualizar el activo
     //this.activo["tanoint"] = this.clasactivosForm.value[]
-    console.log("valores en guardarClasificacion",this.clasactivosForm.value)
-    const activoClasificado = {...this.activoActual, ...this.clasactivosForm.value, calificationDone: true}
+    //onsole.log("valores en guardarClasificacion",this.clasactivosForm.value)
+    const activoClasificado = {...this.activoActual, ...this.clasactivosForm.value, calificationDone: true, iotCode: this.iotCode, giCode:this.giCode, mpCode: this.mpCode, utCode: this.utCode}
     this.visibilidadCardActivos = false;
     this.visibilidadCodigosInfo = false;
     this.db.extendActivo(activoClasificado);
+
+    console.log("se va a guardar los codigos")
+
+    this.clasactivosForm.value["iot"] === "tangible" ? this.guardarCodigo(()=>this.scService.increaseSecuencia("A-IT-T-"),"A-IT-T-") :  this.guardarCodigo(()=>this.scService.increaseSecuencia("A-IT-I-"),"A-IT-I-") ;
+    setTimeout(()=>{
+      this.clasactivosForm.value["mp"] === "dura" ? this.guardarCodigo(()=>this.scService.increaseSecuencia("A-MP-D-"), "A-MP-D-") : this.guardarCodigo(()=>this.scService.increaseSecuencia("A-MP-B-"), "A-MP-B-");
+    },350)
+
+    setTimeout(()=>{
+      this.clasactivosForm.value["ut"] === "kn" ? this.guardarCodigo(()=>this.scService.increaseSecuencia("A-UP-KH-"), "A-UP-KH-") : this.guardarCodigo(()=>this.scService.increaseSecuencia("A-UP-I-"), "A-UP-I-");
+    },700)
+
+    setTimeout(()=>{
+      switch (this.clasactivosForm.value["gi"]){
+        case "hu":
+          this.guardarCodigo(()=>this.scService.increaseSecuencia("A-GI-HU-"),"A-GI-HU-")
+          break;
+        case "in":
+          this.guardarCodigo(()=>this.scService.increaseSecuencia("A-GI-IN-"),"A-GI-IN-")
+          break;
+        case "teh":
+          this.guardarCodigo(()=>this.scService.increaseSecuencia("A-GI-TEH-"),"A-GI-TEH-")
+          break;
+        case "tes":
+          this.guardarCodigo(()=>this.scService.increaseSecuencia("A-GI-TES-"),"A-GI-TES-")
+          break;
+        case "or":
+          this.guardarCodigo(()=>this.scService.increaseSecuencia("A-GI-OR-"),"A-GI-OR-")
+          break;
+      }
+    },1050)
     this.clasactivosForm.reset();
+  }
+
+  guardarCodigo(cb, secuencia){
+    this.scService.getASecuencia(secuencia).subscribe(a =>console.log("secuencia int", a));
+    setTimeout(()=>cb(),300);
   }
 
   private setIotCode(code){

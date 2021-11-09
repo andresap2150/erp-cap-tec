@@ -20,7 +20,6 @@ export class SecuenciasService {
     .pipe(
       tap(spsh => spsh.every(a => {
         this.idActual = a.payload.doc.id;
-        console.log("valor sec",a.payload.doc)
         const secuencia:any = a.payload.doc.data();
         this.valActual = secuencia["valor"];
         this.actualSecuence = secuencia["valor"] < 10 ? type + "0"+ secuencia["valor"]:type + secuencia["valor"];
@@ -46,4 +45,20 @@ export class SecuenciasService {
     )
   }
 
+  public increaseSecuence(type){
+    this.afStore.collection("secuencias", ref=> ref.where("nombre","==",type))
+    .snapshotChanges()
+    .pipe(
+      map(spsh => {
+        const secuence = spsh[0];
+        const data:any = secuence.payload.doc.data();
+        const respon = {id: secuence.payload.doc.id, valor: data["valor"]}
+        return respon ;
+      })
+    ).subscribe(res => {
+      console.log("adentro del increase", res)
+      const nuevoValor = res.valor++;
+      this.afStore.collection("secuencias").doc(res.id).update({"valor": nuevoValor});
+    })
+  }
 }
