@@ -9,6 +9,7 @@ import { RegisterModule } from '../contracts/register/register.module';
 import { EvaluateModule } from '../inventory/evaluate/evaluate.module';
 import { MckinseyModule } from '../inventory/mckinsey/mckinsey.module';
 import { ViewAllModule } from '../contracts/view-all/view-all.module';
+import { ViewClassificationModule } from '../inventory/view-classification/view-classification.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ViewAllModule } from '../contracts/view-all/view-all.module';
     RegisterModule,
     EvaluateModule,
     MckinseyModule,
-    ViewAllModule
+    ViewAllModule,
+    ViewClassificationModule
   ]
 })
 export class HomeModule { }

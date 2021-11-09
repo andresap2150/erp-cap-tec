@@ -1,0 +1,46 @@
+<div class="view-class-comp">
+  <mat-table #table [dataSource]="activos$">
+    <ng-container matColumnDef="id_activo">
+      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+      <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.id_activo}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="nombre_activo">
+      <mat-header-cell *matHeaderCellDef>Activo</mat-header-cell>
+      <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.nombre_activo}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="iot">
+      <mat-header-cell *matHeaderCellDef>Tangibilidad</mat-header-cell>
+      <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.iot}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="iotCode">
+      <mat-header-cell *matHeaderCellDef>Código</mat-header-cell>
+      <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.iotCode}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="mp">
+      <mat-header-cell *matHeaderCellDef>Método de producción</mat-header-cell>
+      <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.mp}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="mpCode">
+      <mat-header-cell *matHeaderCellDef>Código</mat-header-cell>
+      <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.mpCode}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="gi">
+      <mat-header-cell *matHeaderCellDef>Grado de incorporación</mat-header-cell>
+      <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.gi}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="giCode">
+      <mat-header-cell *matHeaderCellDef>Código</mat-header-cell>
+      <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.giCode}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="ut">
+      <mat-header-cell *matHeaderCellDef>Utilización en proceso</mat-header-cell>
+      <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.ut}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="utCode">
+      <mat-header-cell *matHeaderCellDef>Código</mat-header-cell>
+      <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.utCode}}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

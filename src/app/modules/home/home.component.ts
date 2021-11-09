@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   public visibilidadEvaluate = false;
   public visibilidadMckinsey = false;
   public visibilidadVContratos = false;
+  public visibilidadVClasi = false;
 
   constructor(private auth : AuthService) { }
 
@@ -34,6 +35,7 @@ export class HomeComponent implements OnInit {
       this.visibilidadEvaluate = false;
       this.visibilidadMckinsey = false;
       this.visibilidadVContratos = false;
+      this.visibilidadVClasi = false;
   	}
     if($event === 'clasificaactivo'){      
       this.visibilidadCapture = false;
@@ -42,6 +44,7 @@ export class HomeComponent implements OnInit {
       this.visibilidadEvaluate = false;
       this.visibilidadMckinsey = false;
       this.visibilidadVContratos = false;
+      this.visibilidadVClasi = false;
     }
     if($event === 'evaluaactivo'){
       this.visibilidadCapture = false;
@@ -50,6 +53,7 @@ export class HomeComponent implements OnInit {
       this.visibilidadEvaluate = true;
       this.visibilidadMckinsey = false;
       this.visibilidadVContratos = false;
+      this.visibilidadVClasi = false;
     }
     if($event === 'evaluamckinsey'){      
       this.visibilidadCapture = false;
@@ -58,6 +62,7 @@ export class HomeComponent implements OnInit {
       this.visibilidadEvaluate = false;
       this.visibilidadMckinsey = true;
       this.visibilidadVContratos = false;
+      this.visibilidadVClasi = false;
     }
     if($event === 'cargacontrato'){
       this.visibilidadCapture = false;
@@ -65,7 +70,8 @@ export class HomeComponent implements OnInit {
       this.visibilidadCcontrato = true;
       this.visibilidadEvaluate = false;
       this.visibilidadMckinsey = false;  
-      this.visibilidadVContratos = false;    
+      this.visibilidadVContratos = false; 
+      this.visibilidadVClasi = false;   
     }
     if($event === 'vercontratos'){
       this.visibilidadCapture = false;
@@ -74,6 +80,16 @@ export class HomeComponent implements OnInit {
       this.visibilidadEvaluate = false;
       this.visibilidadMckinsey = false;  
       this.visibilidadVContratos = true;
+      this.visibilidadVClasi = false;
+    }
+    if($event === 'verClasificacion'){
+      this.visibilidadCapture = false;
+      this.visibilidadClassify = false;
+      this.visibilidadCcontrato = false;
+      this.visibilidadEvaluate = false;
+      this.visibilidadMckinsey = false;  
+      this.visibilidadVContratos = false;
+      this.visibilidadVClasi = true;
     }
   }
 }

@@ -47,24 +47,24 @@ export class ClassifyComponent implements OnInit {
   }
 
   generarCodigos(){
-    this.clasactivosForm.value["iot"] === "tangible" ? this.scService.getAsecuence("A-IT-T-").subscribe(a => this.setIotCode(a)) : this.scService.getAsecuence("A-IT-I-").subscribe(a => this.setIotCode(a))
-    this.clasactivosForm.value["mp"] === "dura" ? this.scService.getAsecuence("A-MP-D-").subscribe(a =>this.setMpCode(a)) : this.scService.getAsecuence("A-MP-B-").subscribe(a => this.setMpCode(a));
-    this.clasactivosForm.value["ut"] === "kn" ? this.scService.getAsecuence("A-UP-KH-").subscribe(a => this.setUtCode(a)) : this.scService.getAsecuence("A-UP-I-").subscribe(a => this.setUtCode(a));
+    this.clasactivosForm.value["iot"] === "Tangible" ? this.scService.getAsecuence("A-IT-T-").subscribe(a => this.setIotCode(a)) : this.scService.getAsecuence("A-IT-I-").subscribe(a => this.setIotCode(a))
+    this.clasactivosForm.value["mp"] === "Dura" ? this.scService.getAsecuence("A-MP-D-").subscribe(a =>this.setMpCode(a)) : this.scService.getAsecuence("A-MP-B-").subscribe(a => this.setMpCode(a));
+    this.clasactivosForm.value["ut"] === "Know-how" ? this.scService.getAsecuence("A-UP-KH-").subscribe(a => this.setUtCode(a)) : this.scService.getAsecuence("A-UP-I-").subscribe(a => this.setUtCode(a));
     
     switch (this.clasactivosForm.value["gi"]){
-      case "hu":
+      case "Humanware":
         this.scService.getAsecuence("A-GI-HU-").subscribe(a => this.setGiCode(a))
         break;
-      case "in":
+      case "Infoware":
         this.scService.getAsecuence("A-GI-IN-").subscribe(a => this.setGiCode(a))
         break;
-      case "teh":
+      case "Hardware":
         this.scService.getAsecuence("A-GI-TEH-").subscribe(a => this.setGiCode(a))
         break;
-      case "tes":
+      case "Software":
         this.scService.getAsecuence("A-GI-TES-").subscribe(a => this.setGiCode(a))
         break;
-      case "or":
+      case "Orgware":
         this.scService.getAsecuence("A-GI-OR-").subscribe(a => this.setGiCode(a))
         break;
     }
@@ -87,30 +87,30 @@ export class ClassifyComponent implements OnInit {
 
     console.log("se va a guardar los codigos")
 
-    this.clasactivosForm.value["iot"] === "tangible" ? this.guardarCodigo(()=>this.scService.increaseSecuencia("A-IT-T-"),"A-IT-T-") :  this.guardarCodigo(()=>this.scService.increaseSecuencia("A-IT-I-"),"A-IT-I-") ;
+    this.clasactivosForm.value["iot"] === "Tangible" ? this.guardarCodigo(()=>this.scService.increaseSecuencia("A-IT-T-"),"A-IT-T-") :  this.guardarCodigo(()=>this.scService.increaseSecuencia("A-IT-I-"),"A-IT-I-") ;
     setTimeout(()=>{
-      this.clasactivosForm.value["mp"] === "dura" ? this.guardarCodigo(()=>this.scService.increaseSecuencia("A-MP-D-"), "A-MP-D-") : this.guardarCodigo(()=>this.scService.increaseSecuencia("A-MP-B-"), "A-MP-B-");
+      this.clasactivosForm.value["mp"] === "Dura" ? this.guardarCodigo(()=>this.scService.increaseSecuencia("A-MP-D-"), "A-MP-D-") : this.guardarCodigo(()=>this.scService.increaseSecuencia("A-MP-B-"), "A-MP-B-");
     },350)
 
     setTimeout(()=>{
-      this.clasactivosForm.value["ut"] === "kn" ? this.guardarCodigo(()=>this.scService.increaseSecuencia("A-UP-KH-"), "A-UP-KH-") : this.guardarCodigo(()=>this.scService.increaseSecuencia("A-UP-I-"), "A-UP-I-");
+      this.clasactivosForm.value["ut"] === "Know-how" ? this.guardarCodigo(()=>this.scService.increaseSecuencia("A-UP-KH-"), "A-UP-KH-") : this.guardarCodigo(()=>this.scService.increaseSecuencia("A-UP-I-"), "A-UP-I-");
     },700)
 
     setTimeout(()=>{
       switch (this.clasactivosForm.value["gi"]){
-        case "hu":
+        case "Humanware":
           this.guardarCodigo(()=>this.scService.increaseSecuencia("A-GI-HU-"),"A-GI-HU-")
           break;
-        case "in":
+        case "Infoware":
           this.guardarCodigo(()=>this.scService.increaseSecuencia("A-GI-IN-"),"A-GI-IN-")
           break;
-        case "teh":
+        case "Hardware":
           this.guardarCodigo(()=>this.scService.increaseSecuencia("A-GI-TEH-"),"A-GI-TEH-")
           break;
-        case "tes":
+        case "Software":
           this.guardarCodigo(()=>this.scService.increaseSecuencia("A-GI-TES-"),"A-GI-TES-")
           break;
-        case "or":
+        case "Orgware":
           this.guardarCodigo(()=>this.scService.increaseSecuencia("A-GI-OR-"),"A-GI-OR-")
           break;
       }

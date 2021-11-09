@@ -56,7 +56,6 @@ export class SecuenciasService {
         return respon ;
       })
     ).subscribe(res => {
-      console.log("adentro del increase", res)
       const nuevoValor = res.valor++;
       this.afStore.collection("secuencias").doc(res.id).update({"valor": nuevoValor});
     })
