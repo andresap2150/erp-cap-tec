@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-crear-patente',
   templateUrl: './crear-patente.component.html',
-  styleUrls: ['./crear-patente.component.css']
+  styleUrls: ['./crear-patente.component.scss']
 })
 export class CrearPatenteComponent implements OnInit {
   crearPatente: FormGroup;

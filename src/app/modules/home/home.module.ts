@@ -9,7 +9,7 @@ import { RegisterModule } from '../contracts/register/register.module';
 import { EvaluateModule } from '../inventory/evaluate/evaluate.module';
 import { MckinseyModule } from '../inventory/mckinsey/mckinsey.module';
 import { ViewAllModule } from '../contracts/view-all/view-all.module';
-import { crearPatenteModule } from '../patentes/crear-patente/crear-patente.module';
+import { CrearPatenteModule } from '../patentes/crear-patente/crear-patente.module';
 
 
 @NgModule({
@@ -24,7 +24,7 @@ import { crearPatenteModule } from '../patentes/crear-patente/crear-patente.modu
     EvaluateModule,
     MckinseyModule,
     ViewAllModule,
-    crearPatenteModule
+    CrearPatenteModule
   ]
 })
 export class HomeModule { }

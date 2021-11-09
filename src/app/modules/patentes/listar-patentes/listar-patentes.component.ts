@@ -7,7 +7,7 @@ import { PatenteService } from 'src/app/modules/core/patente.service';
 @Component({
   selector: 'app-listar-patentes',
   templateUrl: './listar-patentes.component.html',
-  styleUrls: ['./listar-patentes.component.css']
+  styleUrls: ['./listar-patentes.component.scss']
 })
 export class ListarPatentesComponent implements OnInit {
   patentes: any[] = [];

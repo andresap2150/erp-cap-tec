@@ -8,12 +8,9 @@ import { CoreModule } from './modules/core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { ToastrModule } from 'ngx-toastr';
-
 //componentes
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
-import { ListarPatentesComponent } from './modules/patentes/listar-patentes/listar-patentes.component';
-import { CrearPatenteComponent } from './modules/patentes/crear-patente/crear-patente.component';
 
 export const MY_DATE_FORMATS = {
   parse: {
@@ -29,9 +26,7 @@ export const MY_DATE_FORMATS = {
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ListarPatentesComponent,
-    CrearPatenteComponent
+    AppComponent
   ],
   imports: [
     CoreModule,

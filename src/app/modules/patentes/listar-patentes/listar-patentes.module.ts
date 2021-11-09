@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from './../../shared/shared.module';
-import { CrearPatenteComponent } from './crear-patente.component';
+import { ListarPatentesComponent } from './listar-patentes.component';
 
 @NgModule({
-	declarations: [CrearPatenteComponent],
+	declarations: [ListarPatentesComponent],
 	imports : [
 	  CommonModule,
 	  SharedModule
 	],
 	exports: [
-      CrearPatenteComponent
+      ListarPatentesComponent
 	]
 })
 
-export class CrearPatenteModule { }
+export class ListarPatentesModule { }
