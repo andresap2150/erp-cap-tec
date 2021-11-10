@@ -89,7 +89,7 @@ export class HomeComponent implements OnInit {
       this.visibilidadCpatentes = false;
       this.visibilidadLpatentes = false;
     }
-    if($event === 'cargarpatentes'){
+    if($event === 'crearpatentes'){
       this.visibilidadCapture = false;
       this.visibilidadClassify = false;
       this.visibilidadCcontrato = false;
