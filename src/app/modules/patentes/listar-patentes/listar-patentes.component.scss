@@ -1,3 +1,11 @@
+@import '~bootstrap/scss/bootstrap';
 i {
     cursor: pointer;
+}
+.container{
+    position: absolute;
+    display: flex;
+    flex-direction:column;
+    top:135px;
+    width: 100%;
 }
