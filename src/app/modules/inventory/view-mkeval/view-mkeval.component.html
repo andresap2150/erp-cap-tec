@@ -1,0 +1,22 @@
+<div class="view-mceval-comp">
+  <mat-table #table [dataSource]="activos$">
+    <ng-container matColumnDef="id_activo">
+      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+      <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.id_activo}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="nombre_activo">
+      <mat-header-cell *matHeaderCellDef>Activo</mat-header-cell>
+      <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.nombre_activo}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="mcEval">
+      <mat-header-cell *matHeaderCellDef>Evaluación</mat-header-cell>
+      <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.madu}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="mcImpo">
+      <mat-header-cell *matHeaderCellDef>Importancia</mat-header-cell>
+      <mat-cell *matCellDef="let ativoTecnologico">{{ativoTecnologico.madu}}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
