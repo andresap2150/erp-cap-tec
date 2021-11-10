@@ -1,20 +1,22 @@
-<div class="register-comp">
+<!--<div class="register-comp">
     <mat-card>
       <mat-card-title><h3>Agregar Patente</h3></mat-card-title>
       <mat-card-content>
-        <div [formGroup]="crearPatente" (ngSubmit)="agregarEditarPatente()">
-          <div class=form-row>
+        <div>
+          <span *ngIf="submitted && crearPatente.invalid">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
+          <form [formGroup]="crearPatente" (ngSubmit)="agregarEditarPatente()">
+            <div class=form-row>
             <mat-label class="card-input-middle">Titulo</mat-label>
             <span class="space-between"></span>
             <mat-form-field>
               <input matInput placeholder="Titulo patente" formControlName="titulo" required>
             </mat-form-field>
-          </div>
-          <div class=form-row style="height: 180;">
+            </div>
+            <div class=form-row style="height: 180;">
             <mat-label>Descripción Patente:</mat-label>
             <textarea matInput placeholder="Descripcion" formControlName="descripcion" required></textarea>
-          </div>
-          <div>
+            </div>
+            <div>
             <mat-label class="card-input-middle">Fecha de Solicitud</mat-label>
             <span class="space-between"></span>
             <mat-form-field appearance="fill">
@@ -22,8 +24,8 @@
               <mat-datepicker-toggle matSuffix [for]="fechaSolicitud"></mat-datepicker-toggle>
               <mat-datepicker #fechaSolicitud disabled="false"></mat-datepicker>
             </mat-form-field> 
-          </div>
-          <div>
+            </div>
+            <div>
             <mat-label class="card-input-middle">Fecha de Solicitud</mat-label>
             <span class="space-between"></span>
             <mat-form-field appearance="fill">
@@ -31,8 +33,8 @@
               <mat-datepicker-toggle matSuffix [for]="fechaPublicacion"></mat-datepicker-toggle>
               <mat-datepicker #fechaPublicacion disabled="false"></mat-datepicker>
             </mat-form-field> 
-          </div>
-          <div>
+            </div>
+            <div>
             <mat-label class="card-input-middle">Fecha de Caducidad</mat-label>
             <span class="space-between"></span>
             <mat-form-field appearance="fill">
@@ -40,8 +42,8 @@
               <mat-datepicker-toggle matSuffix [for]="fechaCaducidad"></mat-datepicker-toggle>
               <mat-datepicker #fechaCaducidad disabled="false"></mat-datepicker>
             </mat-form-field> 
-          </div>
-          <div>
+            </div>
+            <div>
             <mat-label class="card-input-middle">Fecha de Presentacion</mat-label>
             <span class="space-between"></span>
             <mat-form-field appearance="fill">
@@ -49,25 +51,28 @@
               <mat-datepicker-toggle matSuffix [for]="fechaPresentacion"></mat-datepicker-toggle>
               <mat-datepicker #fechaPresentacion disabled="false"></mat-datepicker>
             </mat-form-field> 
-          </div>
-          <div class=form-row>
+            </div>
+            <div class=form-row>
             <mat-label class="card-input-middle">Creadores</mat-label>
             <span class="space-between"></span>
             <mat-form-field>
               <input matInput placeholder="Creadores" formControlName="creadores" required>
             </mat-form-field>
-          </div>
-        </div> 
+            </div>
+            <div>
+              <button type="submit" mat-raised-button color="primary">Agregar</button>
+              <button mat-raised-button color="primary" routerLink="/listar-patentes">Volver</button>
+            </div>
+          </form>
+        </div>
       </mat-card-content>
       <mat-card-content>
-        <button type="submit" mat-raised-button color="primary">Agregar</button>
-        <button mat-raised-button color="primary" routerLink="/listar-patentes">Volver</button>
       </mat-card-content>
     </mat-card>
-</div>
+</div>-->
 
 
-<!--<div class="container pt-4">
+<div class="register-comp">
     <div class="row">
         <div class="col-lg-6 offset-lg-3">
             <div class="card text-center">
@@ -96,4 +101,4 @@
             </div>
         </div>
     </div>
-</div>-->
+</div>
