@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { PatenteService } from 'src/app/modules/core/patente.service';
+import { Validators,FormBuilder,FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-listar-patentes',
