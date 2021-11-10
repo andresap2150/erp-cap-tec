@@ -20,6 +20,8 @@ export class HomeComponent implements OnInit {
   public visibilidadMckinsey = false;
   public visibilidadVContratos = false;
   public visibilidadVClasi = false;
+  public visibilidadVEval = false;
+  public visibilidadVMkEval = false;
 
   constructor(private auth : AuthService) { }
 
@@ -36,6 +38,8 @@ export class HomeComponent implements OnInit {
       this.visibilidadMckinsey = false;
       this.visibilidadVContratos = false;
       this.visibilidadVClasi = false;
+      this.visibilidadVEval = false;
+      this.visibilidadVMkEval = false;
   	}
     if($event === 'clasificaactivo'){      
       this.visibilidadCapture = false;
@@ -45,6 +49,8 @@ export class HomeComponent implements OnInit {
       this.visibilidadMckinsey = false;
       this.visibilidadVContratos = false;
       this.visibilidadVClasi = false;
+      this.visibilidadVEval = false;
+      this.visibilidadVMkEval = false;
     }
     if($event === 'evaluaactivo'){
       this.visibilidadCapture = false;
@@ -54,6 +60,8 @@ export class HomeComponent implements OnInit {
       this.visibilidadMckinsey = false;
       this.visibilidadVContratos = false;
       this.visibilidadVClasi = false;
+      this.visibilidadVEval = false;
+      this.visibilidadVMkEval = false;
     }
     if($event === 'evaluamckinsey'){      
       this.visibilidadCapture = false;
@@ -63,6 +71,8 @@ export class HomeComponent implements OnInit {
       this.visibilidadMckinsey = true;
       this.visibilidadVContratos = false;
       this.visibilidadVClasi = false;
+      this.visibilidadVEval = false;
+      this.visibilidadVMkEval = false;
     }
     if($event === 'cargacontrato'){
       this.visibilidadCapture = false;
@@ -71,7 +81,9 @@ export class HomeComponent implements OnInit {
       this.visibilidadEvaluate = false;
       this.visibilidadMckinsey = false;  
       this.visibilidadVContratos = false; 
-      this.visibilidadVClasi = false;   
+      this.visibilidadVClasi = false; 
+      this.visibilidadVEval = false;
+      this.visibilidadVMkEval = false;  
     }
     if($event === 'vercontratos'){
       this.visibilidadCapture = false;
@@ -81,6 +93,8 @@ export class HomeComponent implements OnInit {
       this.visibilidadMckinsey = false;  
       this.visibilidadVContratos = true;
       this.visibilidadVClasi = false;
+      this.visibilidadVEval = false;
+      this.visibilidadVMkEval = false;
     }
     if($event === 'verClasificacion'){
       this.visibilidadCapture = false;
@@ -90,6 +104,30 @@ export class HomeComponent implements OnInit {
       this.visibilidadMckinsey = false;  
       this.visibilidadVContratos = false;
       this.visibilidadVClasi = true;
+      this.visibilidadVEval = false;
+      this.visibilidadVMkEval = false;
+    }
+    if($event === 'verEvaluacion'){
+      this.visibilidadCapture = false;
+      this.visibilidadClassify = false;
+      this.visibilidadCcontrato = false;
+      this.visibilidadEvaluate = false;
+      this.visibilidadMckinsey = false;  
+      this.visibilidadVContratos = false;
+      this.visibilidadVClasi = false;
+      this.visibilidadVEval = true;
+      this.visibilidadVMkEval = false;
+    }
+    if($event === 'verMkEvaluacion'){
+      this.visibilidadCapture = false;
+      this.visibilidadClassify = false;
+      this.visibilidadCcontrato = false;
+      this.visibilidadEvaluate = false;
+      this.visibilidadMckinsey = false;  
+      this.visibilidadVContratos = false;
+      this.visibilidadVClasi = false;
+      this.visibilidadVEval = false;
+      this.visibilidadVMkEval = true;
     }
   }
 }

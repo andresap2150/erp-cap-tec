@@ -10,6 +10,8 @@ import { EvaluateModule } from '../inventory/evaluate/evaluate.module';
 import { MckinseyModule } from '../inventory/mckinsey/mckinsey.module';
 import { ViewAllModule } from '../contracts/view-all/view-all.module';
 import { ViewClassificationModule } from '../inventory/view-classification/view-classification.module';
+import { ViewMKEvalModule } from '../inventory/view-mkeval/view-mkeval.module';
+import { ViewEvaluationModule } from '../inventory/view-evaluation/view-evaluation.module';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { ViewClassificationModule } from '../inventory/view-classification/view-
     EvaluateModule,
     MckinseyModule,
     ViewAllModule,
-    ViewClassificationModule
+    ViewClassificationModule,
+    ViewEvaluationModule,
+    ViewMKEvalModule
   ]
 })
 export class HomeModule { }

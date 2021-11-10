@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ViewClassificationComponent } from './view-classification.component';
+import { ViewEvaluationComponent } from './view-evaluation.component';
 import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
-  declarations: [ViewClassificationComponent],
+  declarations: [ViewEvaluationComponent],
   imports: [
     CommonModule,
     SharedModule
   ],
   exports:[
-    ViewClassificationComponent
+    ViewEvaluationComponent
   ]
 })
-export class ViewClassificationModule { }
+export class ViewEvaluationModule { }
