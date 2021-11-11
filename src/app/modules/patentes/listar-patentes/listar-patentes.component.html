@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <span class="h3">Lista de Patentes</span>
+            <button class="btn btn-success float-right" routerLink="/crear-patente">Agregar</button>
+            <h5 style="margin-top: 20px;" *ngIf="patentes.length == 0">No hay datos para mostrar</h5>
+            <table *ngIf="patentes.length > 0" class="table table-striped mt-5">
+                <thead>
+                  <tr>
+                    <th>Titulo</th>
+                    <th>Descripcion</th>
+                    <th>Fecha Solicitud</th>
+                    <th>Fecha Publicacion</th>
+                    <th>Fecha Caducidad</th>
+                    <th>Fecha Presentacion</th>
+                    <th>Creadores</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let patente of patentes">
+                    <td>{{ patente.titulo }}</td>
+                    <td>{{ patente.descripcion }}</td>
+                    <td>{{ patente.fechaSolicitud }}</td>
+                    <td>{{ patente.fechaPublicacion}}</td>
+                    <td>{{ patente.fechaCaducidad}}</td>
+                    <td>{{ patente.fechaPresentacion}}</td>
+                    <td>{{ patente.creadores}}</td>
+                    <td>
+                      <i class="fas fa-edit text-info mr-2" [routerLink]="['/crear-patente/', patente.id]"></i>
+                      <i (click)="eliminarPatente(patente.id)" class="fas fa-trash-alt text-danger"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+  </div>
+  
+
