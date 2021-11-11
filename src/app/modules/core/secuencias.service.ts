@@ -1,6 +1,7 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { throwError } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
 @Injectable({
@@ -11,10 +12,13 @@ export class SecuenciasService {
   public actualSecuence;
   private valActual;
   private idActual;
+  private alreadySaved = false;
+  private reintentos = 3;
 
   constructor(private afStore: AngularFirestore) { }
 
   public getASecuencia(type){
+    this.alreadySaved = false;
     return this.afStore.collection("secuencias", ref=> ref.where("nombre","==",type))
     .snapshotChanges()
     .pipe(
@@ -28,8 +32,15 @@ export class SecuenciasService {
   }
 
   public increaseSecuencia(type){
-    this.valActual++; 
-    this.afStore.collection("secuencias").doc(this.idActual).update({"valor": this.valActual});
+    if(!this.alreadySaved){
+      this.valActual++; 
+      this.afStore.collection("secuencias").doc(this.idActual).update({"valor": this.valActual});
+      this.alreadySaved = true;
+      this.reintentos = 3
+    }else if(this.reintentos>0){
+      this.reintentos--;
+      setTimeout(()=>this.increaseSecuencia(type), 150)
+    }
   }
 
   public getAsecuence(type){

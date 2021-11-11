@@ -48,7 +48,7 @@ export class ClassifyComponent implements OnInit {
 
   generarCodigos(){
     this.clasactivosForm.value["iot"] === "Tangible" ? this.scService.getAsecuence("A-IT-T-").subscribe(a => this.setIotCode(a)) : this.scService.getAsecuence("A-IT-I-").subscribe(a => this.setIotCode(a))
-    this.clasactivosForm.value["mp"] === "Dura" ? this.scService.getAsecuence("A-MP-D-").subscribe(a =>this.setMpCode(a)) : this.scService.getAsecuence("A-MP-B-").subscribe(a => this.setMpCode(a));
+    this.clasactivosForm.value["mp"] === "Dura" ? this.scService.getAsecuence("A-MP-D-").subscribe(a =>this.setMpCode(a)) : this.scService.getAsecuence("A-MP-B-").subscribe(a =>this.setMpCode(a));
     this.clasactivosForm.value["ut"] === "Know-how" ? this.scService.getAsecuence("A-UP-KH-").subscribe(a => this.setUtCode(a)) : this.scService.getAsecuence("A-UP-I-").subscribe(a => this.setUtCode(a));
     
     switch (this.clasactivosForm.value["gi"]){
@@ -85,12 +85,11 @@ export class ClassifyComponent implements OnInit {
     this.visibilidadCodigosInfo = false;
     this.db.extendActivo(activoClasificado);
 
-    console.log("se va a guardar los codigos")
-
     this.clasactivosForm.value["iot"] === "Tangible" ? this.guardarCodigo(()=>this.scService.increaseSecuencia("A-IT-T-"),"A-IT-T-") :  this.guardarCodigo(()=>this.scService.increaseSecuencia("A-IT-I-"),"A-IT-I-") ;
+    
     setTimeout(()=>{
       this.clasactivosForm.value["mp"] === "Dura" ? this.guardarCodigo(()=>this.scService.increaseSecuencia("A-MP-D-"), "A-MP-D-") : this.guardarCodigo(()=>this.scService.increaseSecuencia("A-MP-B-"), "A-MP-B-");
-    },350)
+    },400)
 
     setTimeout(()=>{
       this.clasactivosForm.value["ut"] === "Know-how" ? this.guardarCodigo(()=>this.scService.increaseSecuencia("A-UP-KH-"), "A-UP-KH-") : this.guardarCodigo(()=>this.scService.increaseSecuencia("A-UP-I-"), "A-UP-I-");
@@ -114,8 +113,9 @@ export class ClassifyComponent implements OnInit {
           this.guardarCodigo(()=>this.scService.increaseSecuencia("A-GI-OR-"),"A-GI-OR-")
           break;
       }
-    },1050)
-    this.clasactivosForm.reset();
+      this.clasactivosForm.reset();
+    },1250)
+    
   }
 
   guardarCodigo(cb, secuencia){
