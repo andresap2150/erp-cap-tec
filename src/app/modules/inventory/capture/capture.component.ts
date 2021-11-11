@@ -20,7 +20,6 @@ export class CaptureComponent implements OnInit {
   ngOnInit() {
   	this.activos$ = this.db.getTodosActivos();
   	this.activosForm = this.fb.group({
-  	  id_activo: ['', Validators.required],
   	  nombre_activo: ['',Validators.minLength(6)],
   	  ref_activo: ['', Validators.required],
   	  desc_activo: [''],

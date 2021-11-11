@@ -14,4 +14,12 @@ export interface ActivoTecnologico {
   mcEvalDone : boolean;
   mcEval: number;
   mcImpo: number;
+  iot: string;
+  iotCode: string;
+  mp: string;
+  mpCode: string;
+  gi: string;
+  giCode: string;
+  ut: string;
+  utCode:string;
 }

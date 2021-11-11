@@ -13,6 +13,10 @@ import { CrearPatenteModule } from '../patentes/crear-patente/crear-patente.modu
 import { ListarPatentesModule } from '../patentes/listar-patentes/listar-patentes.module';
 import { CargarFormatosModule } from '../patentes/cargar-formatos/cargar-formatos.module';
 import { ListarFormatosModule } from '../patentes/listar-formatos/listar-formatos.module';
+import { ViewClassificationModule } from '../inventory/view-classification/view-classification.module';
+import { ViewMKEvalModule } from '../inventory/view-mkeval/view-mkeval.module';
+import { ViewEvaluationModule } from '../inventory/view-evaluation/view-evaluation.module';
+
 
 @NgModule({
   declarations: [HomeComponent],
@@ -30,6 +34,9 @@ import { ListarFormatosModule } from '../patentes/listar-formatos/listar-formato
     ListarPatentesModule,
     CargarFormatosModule,
     ListarFormatosModule,
+    ViewClassificationModule,
+    ViewEvaluationModule,
+    ViewMKEvalModule
   ]
 })
 export class HomeModule { }

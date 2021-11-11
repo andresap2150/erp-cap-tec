@@ -23,6 +23,9 @@ export class HomeComponent implements OnInit {
   public visibilidadLpatentes = false;
   public visibilidadCformatos = false;
   public visibilidadLformatos = false;
+  public visibilidadVClasi = false;
+  public visibilidadVEval = false;
+  public visibilidadVMkEval = false;
 
   constructor(private auth : AuthService) { }
 
@@ -32,7 +35,7 @@ export class HomeComponent implements OnInit {
 
   barraNavegacionListener($event){
   	if($event === 'capturaactivo'){
-  		this.visibilidadCapture = true;
+  	this.visibilidadCapture = true;
       this.visibilidadClassify = false;
       this.visibilidadCcontrato = false;
       this.visibilidadEvaluate = false;
@@ -40,6 +43,9 @@ export class HomeComponent implements OnInit {
       this.visibilidadVContratos = false;
       this.visibilidadCpatentes = false;
       this.visibilidadLpatentes = false;
+      this.visibilidadVClasi = false;
+      this.visibilidadVEval = false;
+      this.visibilidadVMkEval = false;
   	}
     if($event === 'clasificaactivo'){      
       this.visibilidadCapture = false;
@@ -50,6 +56,9 @@ export class HomeComponent implements OnInit {
       this.visibilidadVContratos = false;
       this.visibilidadCpatentes = false;
       this.visibilidadLpatentes = false;
+      this.visibilidadVClasi = false;
+      this.visibilidadVEval = false;
+      this.visibilidadVMkEval = false;
     }
     if($event === 'evaluaactivo'){
       this.visibilidadCapture = false;
@@ -60,6 +69,9 @@ export class HomeComponent implements OnInit {
       this.visibilidadVContratos = false;
       this.visibilidadCpatentes = false;
       this.visibilidadLpatentes = false;
+      this.visibilidadVClasi = false;
+      this.visibilidadVEval = false;
+      this.visibilidadVMkEval = false;
     }
     if($event === 'evaluamckinsey'){      
       this.visibilidadCapture = false;
@@ -70,16 +82,22 @@ export class HomeComponent implements OnInit {
       this.visibilidadVContratos = false;
       this.visibilidadCpatentes = false;
       this.visibilidadLpatentes = false;
+      this.visibilidadVClasi = false;
+      this.visibilidadVEval = false;
+      this.visibilidadVMkEval = false;
     }
     if($event === 'cargacontrato'){
       this.visibilidadCapture = false;
       this.visibilidadClassify = false;
       this.visibilidadCcontrato = true;
       this.visibilidadEvaluate = false;
-      this.visibilidadMckinsey = false;  
+      this.visibilidadMckinsey = false;
       this.visibilidadVContratos = false;
       this.visibilidadCpatentes = false;
-      this.visibilidadLpatentes = false;    
+      this.visibilidadLpatentes = false;
+      this.visibilidadVClasi = false;
+      this.visibilidadVEval = false;
+      this.visibilidadVMkEval = false;
     }
     if($event === 'vercontratos'){
       this.visibilidadCapture = false;
@@ -90,6 +108,9 @@ export class HomeComponent implements OnInit {
       this.visibilidadVContratos = true;
       this.visibilidadCpatentes = false;
       this.visibilidadLpatentes = false;
+      this.visibilidadVClasi = false;
+      this.visibilidadVEval = false;
+      this.visibilidadVMkEval = false;
     }
     if($event === 'crearpatentes'){
       this.visibilidadCapture = false;
@@ -100,6 +121,22 @@ export class HomeComponent implements OnInit {
       this.visibilidadVContratos = false;
       this.visibilidadCpatentes = true;
       this.visibilidadLpatentes = false;
+      this.visibilidadVClasi = false;
+      this.visibilidadVEval = false;
+      this.visibilidadVMkEval = false;
+    }
+    if($event === 'verClasificacion'){
+      this.visibilidadCapture = false;
+      this.visibilidadClassify = false;
+      this.visibilidadCcontrato = false;
+      this.visibilidadEvaluate = false;
+      this.visibilidadMckinsey = false;  
+      this.visibilidadVContratos = false;
+      this.visibilidadCpatentes = false;
+      this.visibilidadLpatentes = false;
+      this.visibilidadVClasi = true;
+      this.visibilidadVEval = false;
+      this.visibilidadVMkEval = false;
     }
     if($event === 'listarpatentes'){
       this.visibilidadCapture = false;
@@ -110,8 +147,11 @@ export class HomeComponent implements OnInit {
       this.visibilidadVContratos = false;
       this.visibilidadCpatentes = false;
       this.visibilidadLpatentes = true;
+      this.visibilidadVClasi = false;
+      this.visibilidadVEval = false;
+      this.visibilidadVMkEval = false;
     }
-    if($event === 'cargarformatos'){
+    if($event === 'verEvaluacion'){
       this.visibilidadCapture = false;
       this.visibilidadClassify = false;
       this.visibilidadCcontrato = false;
@@ -120,8 +160,35 @@ export class HomeComponent implements OnInit {
       this.visibilidadVContratos = false;
       this.visibilidadCpatentes = false;
       this.visibilidadLpatentes = false;
-      this.visibilidadCformatos = true;
-      this.visibilidadLformatos = false;
+      this.visibilidadVClasi = false;
+      this.visibilidadVEval = true;
+      this.visibilidadVMkEval = false;
+    }
+    if($event === 'cargarformatos'){
+      this.visibilidadCapture = false;
+      this.visibilidadClassify = false;
+      this.visibilidadCcontrato = true;
+      this.visibilidadEvaluate = false;
+      this.visibilidadMckinsey = false;  
+      this.visibilidadVContratos = false;
+      this.visibilidadCpatentes = false;
+      this.visibilidadLpatentes = false;
+      this.visibilidadVClasi = false;
+      this.visibilidadVEval = false;
+      this.visibilidadVMkEval = false;
+    }
+    if($event === 'verMkEvaluacion'){
+      this.visibilidadCapture = false;
+      this.visibilidadClassify = false;
+      this.visibilidadCcontrato = false;
+      this.visibilidadEvaluate = false;
+      this.visibilidadMckinsey = false;  
+      this.visibilidadVContratos = false;
+      this.visibilidadCpatentes = false;
+      this.visibilidadLpatentes = false;
+      this.visibilidadVClasi = false;
+      this.visibilidadVEval = false;
+      this.visibilidadVMkEval = true;
     }
     if($event === 'listarformatos'){
       this.visibilidadCapture = false;
@@ -132,8 +199,9 @@ export class HomeComponent implements OnInit {
       this.visibilidadVContratos = false;
       this.visibilidadCpatentes = false;
       this.visibilidadLpatentes = false;
-      this.visibilidadCformatos = false;
-      this.visibilidadLformatos = true;
+      this.visibilidadVClasi = false;
+      this.visibilidadVEval = false;
+      this.visibilidadVMkEval = false;
     }
   }
 }
