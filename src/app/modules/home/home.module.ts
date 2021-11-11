@@ -11,7 +11,8 @@ import { MckinseyModule } from '../inventory/mckinsey/mckinsey.module';
 import { ViewAllModule } from '../contracts/view-all/view-all.module';
 import { CrearPatenteModule } from '../patentes/crear-patente/crear-patente.module';
 import { ListarPatentesModule } from '../patentes/listar-patentes/listar-patentes.module';
-
+import { CargarFormatosModule } from '../patentes/cargar-formatos/cargar-formatos.module';
+import { ListarFormatosModule } from '../patentes/listar-formatos/listar-formatos.module';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -26,7 +27,9 @@ import { ListarPatentesModule } from '../patentes/listar-patentes/listar-patente
     MckinseyModule,
     ViewAllModule,
     CrearPatenteModule,
-    ListarPatentesModule
+    ListarPatentesModule,
+    CargarFormatosModule,
+    ListarFormatosModule,
   ]
 })
 export class HomeModule { }

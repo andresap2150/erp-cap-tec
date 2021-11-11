@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
   public visibilidadVContratos = false;
   public visibilidadCpatentes = false;
   public visibilidadLpatentes = false;
+  public visibilidadCformatos = false;
+  public visibilidadLformatos = false;
 
   constructor(private auth : AuthService) { }
 
@@ -108,6 +110,30 @@ export class HomeComponent implements OnInit {
       this.visibilidadVContratos = false;
       this.visibilidadCpatentes = false;
       this.visibilidadLpatentes = true;
+    }
+    if($event === 'cargarformatos'){
+      this.visibilidadCapture = false;
+      this.visibilidadClassify = false;
+      this.visibilidadCcontrato = false;
+      this.visibilidadEvaluate = false;
+      this.visibilidadMckinsey = false;  
+      this.visibilidadVContratos = false;
+      this.visibilidadCpatentes = false;
+      this.visibilidadLpatentes = false;
+      this.visibilidadCformatos = true;
+      this.visibilidadLformatos = false;
+    }
+    if($event === 'listarformatos'){
+      this.visibilidadCapture = false;
+      this.visibilidadClassify = false;
+      this.visibilidadCcontrato = false;
+      this.visibilidadEvaluate = false;
+      this.visibilidadMckinsey = false;  
+      this.visibilidadVContratos = false;
+      this.visibilidadCpatentes = false;
+      this.visibilidadLpatentes = false;
+      this.visibilidadCformatos = false;
+      this.visibilidadLformatos = true;
     }
   }
 }

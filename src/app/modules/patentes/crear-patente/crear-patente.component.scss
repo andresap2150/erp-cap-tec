@@ -1,8 +1,13 @@
 @import '~bootstrap/scss/bootstrap';
-.container{
-    //position: absolute;
-    //display: flex;
-    //flex-direction:column;
-    top:135px;
-    width: 50%;
+.card-body{ 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+.container{
+    top:144px;
+}
+.abs-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}@import '~bootstrap/scss/bootstrap';
