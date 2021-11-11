@@ -7,9 +7,11 @@ const routes: Routes = [
   {path:'', redirectTo: 'login', pathMatch:'full'},
   {path:'login', loadChildren: ()=>import('./modules/user/login/login.module').then(m => m.LoginModule)},
   {path:'home', loadChildren: ()=>import('./modules/home/home.module').then(m => m.HomeModule)},
-  { path: 'listar-patentes', component: ListarPatentesComponent },
+  {path:'crear-patente/:id', loadChildren: ()=>import('./modules/patentes/crear-patente/crear-patente.module').then(m => m.CrearPatenteModule)},
+  
+  /*{ path: 'listar-patentes', component: ListarPatentesComponent },
   { path: 'crear-patente', component: CrearPatenteComponent },
-  { path: 'editarPatente/:id', component: CrearPatenteComponent },
+  { path: 'editarPatente/:id', component: CrearPatenteComponent },*/
 ];
 
 @NgModule({

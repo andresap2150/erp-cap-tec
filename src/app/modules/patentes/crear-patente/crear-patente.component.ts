@@ -72,7 +72,7 @@ export class CrearPatenteComponent implements OnInit {
     this._patenteService.agregarPatente(patente).then(() => {
       //console.log('patente registrada con éxito');
       this.toastr.success('La patente fue registrada con éxito!', 'Patente Registrada')
-      this.router.navigate(['/listar-patentes'])
+      //this.router.navigate(['/listar-patentes'])
     }).catch(error => {
     console.log(error);
     })
@@ -94,7 +94,7 @@ export class CrearPatenteComponent implements OnInit {
     this._patenteService.actualizarPatente(id, patente).then(() => {
       //this.loading = false;
       this.toastr.info('La patente fue modificada con éxito', 'Patente modificada')
-      this.router.navigate(['/listar-patentes']);
+      //this.router.navigate(['/listar-patentes']);
     })
   }
 
