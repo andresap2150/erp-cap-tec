@@ -3,15 +3,15 @@
   <!--app-capture *ngIf="(user$ | async)?.rol ==='4'"></app-capture-->
   <app-capture *ngIf="visibilidadCapture"></app-capture>
   <app-classify *ngIf="visibilidadClassify"></app-classify>
-  <app-register *ngIf="visibilidadCcontrato"></app-register>
+  <app-view-classification *ngIf="visibilidadVClasi"></app-view-classification>
   <app-evaluate *ngIf="visibilidadEvaluate"></app-evaluate>
+  <app-view-evaluation *ngIf="visibilidadVEval"></app-view-evaluation>
   <app-mckinsey *ngIf="visibilidadMckinsey"></app-mckinsey>
+  <app-view-mkeval *ngIf="visibilidadVMkEval"></app-view-mkeval>
+  <app-register *ngIf="visibilidadCcontrato"></app-register>
   <app-view-all *ngIf="visibilidadVContratos"></app-view-all>
   <app-crear-patente *ngIf="visibilidadCpatentes"></app-crear-patente>
   <app-listar-patentes *ngIf="visibilidadLpatentes"></app-listar-patentes>
   <app-cargar-formatos *ngIf="visibilidadCformatos"></app-cargar-formatos>
   <app-listar-formatos *ngIf="visibilidadLformatos"></app-listar-formatos>
-  <app-view-classification *ngIf="visibilidadVClasi"></app-view-classification>
-  <app-view-evaluation *ngIf="visibilidadVEval"></app-view-evaluation>
-  <app-view-mkeval *ngIf="visibilidadVMkEval"></app-view-mkeval>
 </div>

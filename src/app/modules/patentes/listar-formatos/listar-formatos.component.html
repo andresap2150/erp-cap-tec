@@ -1,20 +1,26 @@
-<div class="listar-formatos">
-    <div *ngFor="let formato of formatos">
-      <mat-card>
-        <mat-card-title >{{formato.nombre}}</mat-card-title>
-          
-        <mat-card-content>
-          <div>
-          El formato {{formato.nombre}}  
-          <br>
-          <br>
-          Se diligenció el {{formato.fechaCreacion | date:'dd/MM/yyyy'}}
-          <br>
-          El cual esta vigente hasta {{formato.fechaVigencia | date:'dd/MM/yyyy'}}
-    
-          Descargue una copia del formato ya presentado <a href="{{formato.rutaFormato}}">aquí</a>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </div>
+<div class="container">
+  <div class="card">
+      <div class="card-body">
+          <span class="h5">Lista de Adjuntos de Patentes</span>
+          <h5 style="margin-top: 10px;" *ngIf="patentes.length == 0">No hay datos para mostrar</h5>
+          <table *ngIf="patentes.length > 0" class="table table-striped mt-5">
+              <thead>
+                <tr>
+                  <th>Titulo</th>
+                  <th>Descripcion</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let patente of patentes">
+                  <td>{{ patente.titulo }}</td>
+                  <td>{{ patente.descripcion }}</td>
+                  <td>
+                    <i class="fas fa-edit text-info mr-2" [routerLink]="['/crear-patente/', patente.id]"></i>
+                    <i (click)="eliminarPatente(patente.id)" class="fas fa-trash-alt text-danger"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+      </div>
   </div>
+</div>

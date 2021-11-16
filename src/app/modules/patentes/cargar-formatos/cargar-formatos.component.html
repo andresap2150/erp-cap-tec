@@ -1,9 +1,28 @@
 <div class="container">
-    <div class="card">
-        <div class="card-body">
-            <span class="h3">Lista de Formatos a diligenciar y guardar</span>
-            <h5>En la siguiente direccion encontrará los formatos para patentes y nuevas creaciones:</h5>
-            <a href="https://www.sic.gov.co/formatos-patentes" target="_blank">Formatos para patentes y nuevas creaciones</a>.
-        </div>
-    </div>
-</div>
+  <div class="card">
+      <div class="card-body">
+      <p><span class="h5">Lista de Formatos esenciales para patentes</span><br></p>
+        <p>En la siguiente dirección encontrará los formatos para patentes y nuevas creaciones:</p>
+        <a href="https://www.sic.gov.co/formatos-patentes" target="_blank">www.sic.gov.co/formatos-patentes</a>.
+
+        <!--<div class="container pt-2">
+          <div class="row">
+              <div class="abs-center">
+                  <div class="card text-center">
+                      <div class="card-body">
+                          <h4>Agregar Adjunto para patente</h4>
+                          <span *ngIf="submitted && crearPatente.invalid">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
+                          <form class="mt-4" [formGroup]="crearPatente" (ngSubmit)="agregarEditarPatente()">
+                              <input type="text" class="form-control form-control mt-1" formControlName="titulo" placeholder="Titulo">
+                              <input type="textarea" class="form-control form-control mt-1" formControlName="descripcion" placeholder="Descripcion de patente">
+                              <label for="creadores">Creadores:</label>
+                              <input type="textarea" class="form-control mt-1" formControlName="creadores" placeholder="Creadores">
+                              <div class="mt-1">
+                                  <button type="submit" class="btn btn-success">Agregar</button>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>-->

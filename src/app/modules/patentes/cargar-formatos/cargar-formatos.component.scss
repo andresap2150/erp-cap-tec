@@ -1,0 +1,14 @@
+@import '~bootstrap/scss/bootstrap';
+i {
+    cursor: pointer;
+}
+.container{
+    position: absolute;
+    display: flex;
+    flex-direction:column;
+    top:128px;
+    width: 100%;
+}
+.card-body{ 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

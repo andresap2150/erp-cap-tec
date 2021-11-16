@@ -9,7 +9,7 @@ import { CargarFormatosComponent } from './cargar-formatos.component';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
   ],
   exports:[
     CargarFormatosComponent

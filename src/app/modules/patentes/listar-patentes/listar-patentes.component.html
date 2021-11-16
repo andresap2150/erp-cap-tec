@@ -1,10 +1,9 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <span class="h4">Lista de Patentes</span>
-            <button class="btn btn-success float-right" routerLink="/crear-patente">Agregar</button>
-            <h5 style="margin-top: 20px;" *ngIf="patentes.length == 0">No hay datos para mostrar</h5>
-            <table *ngIf="patentes.length > 0" class="table table-striped mt-5">
+            <span class="h5">Lista de Patentes</span>
+            <h5 style="margin-top: 10px;" *ngIf="patentes.length == 0">No hay datos para mostrar</h5>
+            <table *ngIf="patentes.length > 0" class="table table-striped mt-2">
                 <thead>
                   <tr>
                     <th>Titulo</th>
