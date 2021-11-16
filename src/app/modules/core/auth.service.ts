@@ -37,7 +37,8 @@ export class AuthService {
     .then(user =>{ 
       this.afStore.collection("perfilUsuario")
       .add({userUid:user?.user?.uid, 
-            rol:"4"})
+            nombreRol: "tecnico",
+            rol:"2"})
     })
     .then(value => {
      this.router.navigateByUrl('/home');

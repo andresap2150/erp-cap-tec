@@ -53,7 +53,7 @@
   </div>
   <br>
   <span class="space-between"></span>
-  <button mat-raised-button color="primary" *ngIf="visibilidadbotonMC" (click)="generarAnalisisMc()" class="analize-b">Generar Matriz McKinsey</button>
+  <button mat-raised-button color="primary" *ngIf="visibilidadbotonMC && ((user$ | async)?.rol ==='4' || (user$ | async)?.rol ==='1')" (click)="generarAnalisisMc()" class="analize-b">Generar Matriz McKinsey</button>
   <div *ngIf="visibilidadChart">
     <canvas class="chartjs-container" baseChart
         [datasets]="bubbleChartData" 

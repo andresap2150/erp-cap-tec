@@ -14,23 +14,22 @@
 <mat-menu x-position="before" #menu="matMenu">
   <button mat-menu-item>Inicio</button>
   <button mat-menu-item>Perfil</button>
-  <!--<button mat-menu-item>Add Note</button>-->
 </mat-menu>
 <mat-menu x-position="before" #patentes="matMenu">
-  <button mat-menu-item (click)="mostrarVista('cargacontrato')">Cargar Contratos</button>
-  <button mat-menu-item (click)="mostrarVista('vercontratos')">Listar Contratos</button>
-  <button mat-menu-item (click)="mostrarVista('crearpatentes')">Registrar patentes</button>
-  <button mat-menu-item (click)="mostrarVista('listarpatentes')">Listar patentes</button>
-  <button mat-menu-item (click)="mostrarVista('cargarformatos')">Cargar Formatos de patentes</button>
-  <button mat-menu-item (click)="mostrarVista('listarformatos')">Listar Adjuntos de patentes</button>
+  <button mat-menu-item *ngIf="(user$ | async)?.rol ==='4' || (user$ | async)?.rol ==='2' || (user$ | async)?.rol ==='1'" (click)="mostrarVista('cargacontrato')">Cargar Contratos</button>
+  <button mat-menu-item *ngIf="(user$ | async)?.rol ==='4' || (user$ | async)?.rol ==='1'" (click)="mostrarVista('vercontratos')">Listar Contratos</button>
+  <button mat-menu-item *ngIf="(user$ | async)?.rol ==='4' || (user$ | async)?.rol ==='2' || (user$ | async)?.rol ==='1'" (click)="mostrarVista('crearpatentes')">Registrar patentes</button>
+  <button mat-menu-item *ngIf="(user$ | async)?.rol ==='4' || (user$ | async)?.rol ==='1'" (click)="mostrarVista('listarpatentes')">Listar patentes</button>
+  <button mat-menu-item *ngIf="(user$ | async)?.rol ==='4' || (user$ | async)?.rol ==='2' || (user$ | async)?.rol ==='1'" (click)="mostrarVista('cargarformatos')">Cargar Formatos de patentes</button>
+  <button mat-menu-item *ngIf="(user$ | async)?.rol ==='4' || (user$ | async)?.rol ==='1'" (click)="mostrarVista('listarformatos')">Listar Adjuntos de patentes</button>
 
 </mat-menu>
 <mat-menu x-position="before" #gestion="matMenu">
-  <button mat-menu-item (click)="mostrarVista('capturaactivo')">Ingresar activos</button>
-  <button mat-menu-item (click)="mostrarVista('clasificaactivo')">Clasificar activos</button>
-  <button mat-menu-item (click)="mostrarVista('verClasificacion')">Ver Clasificación</button>
-  <button mat-menu-item (click)="mostrarVista('evaluaactivo')">Evaluar activos</button>
-  <button mat-menu-item (click)="mostrarVista('verEvaluacion')">Ver Evaluación</button>
-  <button mat-menu-item (click)="mostrarVista('evaluamckinsey')">Realizar Análisis McKinsey</button>
-  <button mat-menu-item (click)="mostrarVista('verMkEvaluacion')">Ver valores McKinsey</button>
+  <button mat-menu-item *ngIf="(user$ | async)?.rol ==='2' || (user$ | async)?.rol ==='1'" (click)="mostrarVista('capturaactivo')">Ingresar activos</button>
+  <button mat-menu-item *ngIf="(user$ | async)?.rol ==='3' || (user$ | async)?.rol ==='1'" (click)="mostrarVista('clasificaactivo')">Clasificar activos</button>
+  <button mat-menu-item *ngIf="(user$ | async)?.rol ==='4' || (user$ | async)?.rol ==='3' || (user$ | async)?.rol ==='1'" (click)="mostrarVista('verClasificacion')">Ver Clasificación</button>
+  <button mat-menu-item *ngIf="(user$ | async)?.rol ==='3' || (user$ | async)?.rol ==='1'" (click)="mostrarVista('evaluaactivo')">Evaluar activos</button>
+  <button mat-menu-item *ngIf="(user$ | async)?.rol ==='4' || (user$ | async)?.rol ==='3' || (user$ | async)?.rol ==='1'" (click)="mostrarVista('verEvaluacion')">Ver Evaluación</button>
+  <button mat-menu-item *ngIf="(user$ | async)?.rol ==='2' || (user$ | async)?.rol ==='1'" (click)="mostrarVista('evaluamckinsey')">Realizar Análisis McKinsey</button>
+  <button mat-menu-item *ngIf="(user$ | async)?.rol ==='4' || (user$ | async)?.rol ==='3' || (user$ | async)?.rol ==='1'" (click)="mostrarVista('verMkEvaluacion')">Ver valores McKinsey</button>
 </mat-menu>

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivosService } from '../../core/activos.service';
 import { Validators,FormBuilder,FormGroup } from '@angular/forms';
 import { ActivoTecnologico } from '../../../models/ActivoTecnologico';
-import { Observable } from "rxjs";
-import { ThrowStmt } from '@angular/compiler';
+import { Observable, Subject } from "rxjs";
 import { Chart,ChartDataSets, ChartOptions } from 'chart.js';
+import { AuthService, User } from '../../core/auth.service';
 
 @Component({
   selector: 'app-mckinsey',
@@ -14,6 +14,7 @@ import { Chart,ChartDataSets, ChartOptions } from 'chart.js';
 export class MckinseyComponent implements OnInit {
   public displayedColumns = ['id_activo', 'nombre_activo','accion'];
   public activos$ : Observable<ActivoTecnologico[]>;
+  public user$: Subject<User>;
   public visibilidadMcEvaluar = false;
   public visibilidadbotonMC = false;
   public visibilidadTbIni = true;
@@ -22,13 +23,13 @@ export class MckinseyComponent implements OnInit {
   public activoActual;
   public bubbleChartData : ChartDataSets[];
   public bubbleChartOptions : ChartOptions; 
-  public bubbleChartOptionsalter : ChartDataSets[]; 
   bubbleChartLegend = true;
   
 
-  constructor(private db: ActivosService, private fb: FormBuilder) { }
+  constructor(private db: ActivosService, private fb: FormBuilder, private auth: AuthService) { }
 
   ngOnInit(): void {
+    this.user$ = this.auth.user$;
   	this.activos$ = this.db.getTodosActivos();
   	this.mcEvalForm = this.fb.group({
       mcEval : [[Validators.min(1),Validators.max(5)]],
@@ -38,13 +39,11 @@ export class MckinseyComponent implements OnInit {
 
   startMcEvaluation(activo){
   	this.activoActual = activo;
-  	console.log("se va a mostar el mc evaluar")
     this.visibilidadMcEvaluar = true;
     this.visibilidadbotonMC = false;
   }
 
   guardarMcEvaluation(){
-  	console.log("se va a mostar el boton, tiene la logica de que todos esten evaluados")
   	if(this.mcEvalForm.valid){
       const activoMcEv = {...this.activoActual, ...this.mcEvalForm.value, mcEvalDone:true}
       this.db.extendActivo(activoMcEv);
@@ -63,25 +62,7 @@ export class MckinseyComponent implements OnInit {
     this.visibilidadChart = true;
   }
 
-  createChartData(){    
-    this.bubbleChartOptionsalter = [
-      {
-        data: [
-          { x: 3, y: 3, r: 10  },
-          { x: 4, y: 2, r: 10  },
-        ],
-        label: 'ACT-001'
-      },
-      {
-        data: [
-          { x: 1, y: 1, r: 10 },
-          { x: 2, y: 2, r: 10  },
-          { x: 5, y: 3, r: 10  },
-        ],
-        label: 'ACT-002'
-      }  
-    ];
-
+  createChartData(){   
     this.bubbleChartOptions = {
       responsive: false,
       scales: {
