@@ -87,11 +87,9 @@ export class MckinseyComponent implements OnInit {
 
     this.bubbleChartData = [];
     this.activos$.subscribe((a:ActivoTecnologico[]) =>{
-      console.log("create chart",a)
       a.forEach(ac =>{
         const yval = ((ac.mcEval)/5)*3; 
         const data = [{x:ac.mcImpo, y:yval, r:10}];
-        console.log("inside",data)
         const label = ac.id_activo;
         const backgroundColor = 'rgba(0, 0, 0, 1)';
         const axl = {data,label, backgroundColor};
