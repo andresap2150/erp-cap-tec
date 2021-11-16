@@ -12,7 +12,6 @@ import { User } from '../core/auth.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public user$: Subject<User>;
   public visibilidadCapture = false;
   public visibilidadClassify = false;
   public visibilidadCcontrato = false;
@@ -27,10 +26,9 @@ export class HomeComponent implements OnInit {
   public visibilidadVEval = false;
   public visibilidadVMkEval = false;
 
-  constructor(private auth : AuthService) { }
+  constructor() { }
 
   ngOnInit(): void {
-  	this.user$ = this.auth.user$;
   }
 
   barraNavegacionListener($event){
