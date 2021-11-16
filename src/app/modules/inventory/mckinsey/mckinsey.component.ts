@@ -69,7 +69,7 @@ export class MckinseyComponent implements OnInit {
         xAxes: [
           {
             ticks: {
-              min: 1,
+              min: 0,
               max: 3,
             }
           }
@@ -77,7 +77,7 @@ export class MckinseyComponent implements OnInit {
         yAxes: [
           {
             ticks: {
-              min: 1,
+              min: 0,
               max: 3,
             }
           }
@@ -87,12 +87,14 @@ export class MckinseyComponent implements OnInit {
 
     this.bubbleChartData = [];
     this.activos$.subscribe((a:ActivoTecnologico[]) =>{
-      console.log(a)
+      console.log("create chart",a)
       a.forEach(ac =>{
         const yval = ((ac.mcEval)/5)*3; 
-        const data = [{x:ac.mcImpo, y:yval, r:20}];
+        const data = [{x:ac.mcImpo, y:yval, r:10}];
+        console.log("inside",data)
         const label = ac.id_activo;
-        const axl = {data,label};
+        const backgroundColor = 'rgba(0, 0, 0, 1)';
+        const axl = {data,label, backgroundColor};
         this.bubbleChartData.push(axl);
       });
     });  
