@@ -1,14 +1,21 @@
-@import '~bootstrap/scss/bootstrap';
-i {
-    cursor: pointer;
-}
-.container{
+.cargar-formatos-comp{
     position: absolute;
     display: flex;
     flex-direction:column;
     top:128px;
     width: 100%;
-}
-.card-body{ 
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-}
+  }
+  
+  .space-between {
+    flex:1;
+  }
+  
+  .form-row{
+    width: 100%;
+    display: flex;
+  }
+  
+  .card-input-middle{
+    margin-top: auto;
+    margin-bottom: auto; 
+  }

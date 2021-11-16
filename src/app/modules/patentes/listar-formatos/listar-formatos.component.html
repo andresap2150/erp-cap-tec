@@ -7,16 +7,15 @@
               <thead>
                 <tr>
                   <th>Titulo</th>
-                  <th>Descripcion</th>
+                  <th>Archivo Petitorio</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let patente of patentes">
                   <td>{{ patente.titulo }}</td>
-                  <td>{{ patente.descripcion }}</td>
+                  <td>{{ patente.descripcion}}</td>
                   <td>
-                    <i class="fas fa-edit text-info mr-2" [routerLink]="['/crear-patente/', patente.id]"></i>
-                    <i (click)="eliminarPatente(patente.id)" class="fas fa-trash-alt text-danger"></i>
+                    <i class="fas fa-edit text-info mr-2" [routerLink]="['/cargar-formatos/', patente.id]"></i>
                   </td>
                 </tr>
               </tbody>

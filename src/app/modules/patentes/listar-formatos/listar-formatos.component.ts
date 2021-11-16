@@ -32,13 +32,4 @@ export class ListarFormatosComponent implements OnInit {
     });
   }
 
-  eliminarPatente(id: string) {
-    this._patenteService.eliminarPatente(id).then(() => {
-      //console.log('patente eliminada con exito')
-      this.toastr.error('La patente fue eliminada con éxito', 'Patente eliminada!');
-    }).catch(error => {
-      console.log(error);
-    })
-  }
-
 }

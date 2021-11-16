@@ -1,28 +1,20 @@
-<div class="container">
-  <div class="card">
-      <div class="card-body">
-      <p><span class="h5">Lista de Formatos esenciales para patentes</span><br></p>
+<div class="cargar-formatos-comp">
+    <mat-card>
+      <mat-card-title>Lista de Formatos esenciales para patentes</mat-card-title>
+      <mat-card-content>
         <p>En la siguiente dirección encontrará los formatos para patentes y nuevas creaciones:</p>
         <a href="https://www.sic.gov.co/formatos-patentes" target="_blank">www.sic.gov.co/formatos-patentes</a>.
-
-        <!--<div class="container pt-2">
-          <div class="row">
-              <div class="abs-center">
-                  <div class="card text-center">
-                      <div class="card-body">
-                          <h4>Agregar Adjunto para patente</h4>
-                          <span *ngIf="submitted && crearPatente.invalid">TODOS LOS CAMPOS SON OBLIGATORIOS</span>
-                          <form class="mt-4" [formGroup]="crearPatente" (ngSubmit)="agregarEditarPatente()">
-                              <input type="text" class="form-control form-control mt-1" formControlName="titulo" placeholder="Titulo">
-                              <input type="textarea" class="form-control form-control mt-1" formControlName="descripcion" placeholder="Descripcion de patente">
-                              <label for="creadores">Creadores:</label>
-                              <input type="textarea" class="form-control mt-1" formControlName="creadores" placeholder="Creadores">
-                              <div class="mt-1">
-                                  <button type="submit" class="btn btn-success">Agregar</button>
-                              </div>
-                          </form>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>-->
+        <p>El link de la Oficina Colombiana de Propiedad Industrial:</p>
+        <a href="http://sipi.sic.gov.co/" target="_blank">http://sipi.sic.gov.co</a>.  
+      </mat-card-content>
+    
+    
+      <!--<form class="mt-4" [formGroup]="crearPatente" (ngSubmit)="agregarEditarPatente()">
+        <label for="rutaPetitorio">Archivo petitorio:</label>
+        <input type="file" class="form-control mt-1" formControlName="rutaPetitorio" (change)="upload($event)" accept=".pdf" required/>
+            <div class="mt-1">
+            <button type="submit" class="btn btn-success">Agregar</button>
+            </div>
+        </form>-->
+    </mat-card>
+</div>

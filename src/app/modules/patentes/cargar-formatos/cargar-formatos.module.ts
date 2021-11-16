@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from './../../shared/shared.module';
 import { CargarFormatosComponent } from './cargar-formatos.component';
+import { CargarFormatosRoutingModule } from './cargar-formatos-routing.module';
 
 @NgModule({
   declarations: [
@@ -10,6 +11,7 @@ import { CargarFormatosComponent } from './cargar-formatos.component';
   imports: [
     CommonModule,
     SharedModule,
+    CargarFormatosRoutingModule,
   ],
   exports:[
     CargarFormatosComponent
