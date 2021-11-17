@@ -1,4 +1,4 @@
-.cargar-formatos-comp{
+/*.cargar-formatos-comp{
     position: absolute;
     display: flex;
     flex-direction:column;
@@ -19,3 +19,19 @@
     margin-top: auto;
     margin-bottom: auto; 
   }
+*/
+@import '~bootstrap/scss/bootstrap';
+.card-body{ 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.container{
+    top:165px;
+}
+.abs-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position :relative;
+  left: 50% !important;
+}@import '~bootstrap/scss/bootstrap';

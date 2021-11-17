@@ -13,9 +13,9 @@
               <tbody>
                 <tr *ngFor="let patente of patentes">
                   <td>{{ patente.titulo }}</td>
-                  <td>{{ patente.descripcion}}</td>
+                  <td>{{ patente.descripcion }}</td>
                   <td>
-                    <i class="fas fa-edit text-info mr-2" [routerLink]="['/cargar-formatos/', patente.id]"></i>
+                    <i class="fas fa-edit text-info mr-2" [routerLink]="['/crear-patente/', patente.id]"></i>
                   </td>
                 </tr>
               </tbody>
