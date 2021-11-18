@@ -1,31 +1,9 @@
-/*.cargar-formatos-comp{
-    position: absolute;
-    display: flex;
-    flex-direction:column;
-    top:128px;
-    width: 100%;
-  }
-  
-  .space-between {
-    flex:1;
-  }
-  
-  .form-row{
-    width: 100%;
-    display: flex;
-  }
-  
-  .card-input-middle{
-    margin-top: auto;
-    margin-bottom: auto; 
-  }
-*/
 @import '~bootstrap/scss/bootstrap';
 .card-body{ 
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 .container{
-    top:165px;
+    top:128px;
 }
 .abs-center {
   display: flex;
@@ -33,5 +11,6 @@
   justify-content: center;
   min-height: 100vh;
   position :relative;
+  width: 100%;
   left: 50% !important;
 }@import '~bootstrap/scss/bootstrap';

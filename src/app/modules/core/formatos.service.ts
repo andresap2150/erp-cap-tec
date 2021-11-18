@@ -14,43 +14,16 @@ export class FormatosService {
 
   constructor(private afStorage: AngularFireStorage, private afStore: AngularFirestore) { }
 
-  uploadFormato(file){
-    const actualD = new Date().getTime();
-    const fPath = '/formatos/'+actualD+file["name"];
-    console.log("fpfile",fPath)
-    this.downloadUrl$ = from(this.afStorage.upload(fPath, file)).pipe(
-      switchMap((_)=>this.afStorage.ref(fPath).getDownloadURL())
-    );
-  }
+  async subirFormato(nombre: string, imgBase64: any) {
 
-  getFormatosCollections(){
-    return this.afStore.collection("formatos");
-  }
+    try {
+      let respuesta = await this.afStorage.ref("formatos/" + nombre).putString(imgBase64, 'data_url');
+      console.log(respuesta);
+      return await respuesta.ref.getDownloadURL();
+    } catch (err) {
+      console.log(err);
+      return null;
+    }
 
-  addFormato(data){    
-    const timestamp = new Date().getTime();
-    console.log("time:",this.downloadUrl$);
-    this.downloadUrl$.subscribe(b => {     
-      return this.getFormatosCollections().add({
-        nombre : data["nombreFormato"],
-        fechaVigencia : timestamp,
-        rutaFormato: b,
-        fechaCreacion : timestamp
-      })
-    });    
-  }
-
-  getTodosFormatos(){
-    return this.getFormatosCollections()
-      .snapshotChanges()
-      .pipe(
-        map(spsh=>
-          spsh.map(b=>{
-            const data = b.payload.doc.data() as Formatos
-            const idf = b.payload.doc.id;
-            return {idf, ...data}
-          })
-        ), catchError(e => throwError(e))
-      );
   }
 }
