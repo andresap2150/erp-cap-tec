@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore'
 import { Subject} from 'rxjs';
 import { catchError, tap, map } from "rxjs/operators";
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class AuthService {
   constructor(
   	private afAuth: AngularFireAuth,
     private afStore: AngularFirestore,
-    private router: Router) {}
+    private router: Router, 
+    private toastr: ToastrService) {}
 
   logout() {
     this.afAuth.signOut().then(() => {
@@ -35,13 +37,15 @@ export class AuthService {
     .then(user =>{ 
       this.afStore.collection("perfilUsuario")
       .add({userUid:user?.user?.uid, 
-            rol:"4"})
+            nombreRol: "tecnico",
+            rol:"2"})
     })
     .then(value => {
      this.router.navigateByUrl('/home');
     })
     .catch(error => {
-      console.log('error al crear usuario: ', error);
+      //console.log('error al crear usuario: ', error);
+      this.toastr.success('Error al crear usuario!', 'Revisa las credenciales!');
     });
   }
 
@@ -50,7 +54,8 @@ export class AuthService {
   ){
     cb()
       .then(data => this.authenticateUser(data)).then(a => this.router.navigateByUrl('/home'))
-      .catch(e =>  console.log('Algo salió mal: ', e.message));
+      //.catch(e =>  console.log('Algo salió mal: ', e.message));
+      .catch(e =>  this.toastr.success('Algo salió mal!', 'Revisa las credenciales!'));
   }
 
   private authenticateUser(userCredential){

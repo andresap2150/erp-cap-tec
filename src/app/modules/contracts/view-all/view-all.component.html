@@ -1,0 +1,21 @@
+<div class="view-all-comp">
+  <div *ngFor="let contrato of contratos">
+    <mat-card>
+      <mat-card-title >{{contrato.nombre}}</mat-card-title>
+        
+      <mat-card-content>
+        <div>
+        El colaborador clave {{contrato.nombre}} con el cargo {{contrato.cargo}} identificado con {{contrato.tipoId}} No. {{contrato.identificacion}} tiene un contrato con la clasula de proteccion tecnologica: 
+        <br>
+        <br>
+        {{contrato.clausula}}
+        <br>
+        El cual esta vigente hasta {{contrato.fechaVigencia | date:'dd/MM/yyyy'}}
+  
+        Descargue una copia del contrato <a href="{{contrato.rutaArchivo}}">aqui</a>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+

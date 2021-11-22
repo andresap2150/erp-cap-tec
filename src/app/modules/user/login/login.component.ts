@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/auth.service';
 import { Validators,FormBuilder,FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   public loginForm : FormGroup;
   public hide = true;
 
-  constructor(private authService : AuthService, private fb: FormBuilder) { }
+  constructor(private authService : AuthService, private fb: FormBuilder,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -24,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   public login() {
     this.checkFormValidity(()=> {
-      this.authService.loginF(this.loginForm.value);
+      this.authService.loginF(this.loginForm.value);      
     });
   }
 
@@ -40,7 +42,8 @@ export class LoginComponent implements OnInit {
       cb();
     } else {
       //this.errorMessages$.next("Please enter correct Email and Password value");
-      console.log("debe ingresar un mail y password correcto")
+      //console.log("debe ingresar un mail y password correcto")
+      this.toastr.success('La validacion de email y/o contraseña es incorrecta', 'Revise e ingrese nuevamente sus credenciales!');
     }
   }     
 

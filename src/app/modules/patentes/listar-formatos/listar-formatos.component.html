@@ -1,0 +1,20 @@
+<div class="listar-formatos">
+    <div *ngFor="let formato of formatos">
+      <mat-card>
+        <mat-card-title >{{formato.nombre}}</mat-card-title>
+          
+        <mat-card-content>
+          <div>
+          El formato {{formato.nombre}}  
+          <br>
+          <br>
+          Se diligenció el {{formato.fechaCreacion | date:'dd/MM/yyyy'}}
+          <br>
+          El cual esta vigente hasta {{formato.fechaVigencia | date:'dd/MM/yyyy'}}
+    
+          Descargue una copia del formato ya presentado <a href="{{formato.rutaFormato}}">aquí</a>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>

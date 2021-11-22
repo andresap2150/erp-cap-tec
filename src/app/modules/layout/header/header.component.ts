@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs';
+import { AuthService, User } from '../../core/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -6,11 +8,14 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-   @Output() messageEvent = new EventEmitter<string>();
+  public user$: Subject<User>;
 
-  constructor() { }
+  @Output() messageEvent = new EventEmitter<string>();
+
+  constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
+    this.user$ = this.auth.user$;
   }
 
   public mostrarVista(button){

@@ -7,29 +7,29 @@
     </button>
   </mat-toolbar-row>
   <mat-toolbar-row>
-    <button mat-menu-item class="barra-usr" [mat-menu-trigger-for]="contratos">Contratos</button>
-    <button mat-menu-item class="barra-usr" [mat-menu-trigger-for]="patentes">Patentes</button>
-    <button mat-menu-item class="barra-usr" [mat-menu-trigger-for]="gestion">Gestion Técnologica</button>
-    <button mat-menu-item class="barra-usr">Ver procesos</button>
+    <button mat-menu-item class="barra-usr" [mat-menu-trigger-for]="gestion">Gestión Inventario Tecnológico</button>
+    <button mat-menu-item class="barra-usr" [mat-menu-trigger-for]="patentes">Gestión Protección Tecnológica</button>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-menu x-position="before" #menu="matMenu">
-  <button mat-menu-item>Home</button>
+  <button mat-menu-item>Inicio</button>
   <button mat-menu-item>Perfil</button>
-  <!--<button mat-menu-item>Add Note</button>-->
-</mat-menu>
-<mat-menu x-position="before" #contratos="matMenu">
-  <button mat-menu-item>Cargar contratos</button>
-  <button mat-menu-item>Ver clausulas</button>
 </mat-menu>
 <mat-menu x-position="before" #patentes="matMenu">
-  <button mat-menu-item>Ver enlaces</button>
-  <button mat-menu-item>Resgistrar patentes</button>
-  <button mat-menu-item>Ver patentes registradas</button>
+  <button mat-menu-item (click)="mostrarVista('cargacontrato')">Cargar Contratos</button>
+  <button mat-menu-item (click)="mostrarVista('vercontratos')">Listar Contratos</button>
+  <button mat-menu-item (click)="mostrarVista('crearpatentes')">Registrar patentes</button>
+  <button mat-menu-item (click)="mostrarVista('listarpatentes')">Listar patentes</button>
+  <!--button mat-menu-item *ngIf="(user$ | async)?.rol ==='4' || (user$ | async)?.rol ==='2' || (user$ | async)?.rol ==='1'" (click)="mostrarVista('cargarformatos')">Cargar Formatos de patentes</button>
+  <button mat-menu-item *ngIf="(user$ | async)?.rol ==='4' || (user$ | async)?.rol ==='1'" (click)="mostrarVista('listarformatos')">Listar Adjuntos de patentes</button-->
+
 </mat-menu>
 <mat-menu x-position="before" #gestion="matMenu">
   <button mat-menu-item (click)="mostrarVista('capturaactivo')">Ingresar activos</button>
   <button mat-menu-item (click)="mostrarVista('clasificaactivo')">Clasificar activos</button>
+  <button mat-menu-item (click)="mostrarVista('verClasificacion')">Ver Clasificación</button>
   <button mat-menu-item (click)="mostrarVista('evaluaactivo')">Evaluar activos</button>
-  <button mat-menu-item (click)="mostrarVista('evaluamckinsey')">Realizar analisis Maclensky</button>
+  <button mat-menu-item (click)="mostrarVista('verEvaluacion')">Ver Evaluación</button>
+  <button mat-menu-item (click)="mostrarVista('evaluamckinsey')">Realizar Análisis McKinsey</button>
+  <button mat-menu-item (click)="mostrarVista('verMkEvaluacion')">Ver valores McKinsey</button>
 </mat-menu>

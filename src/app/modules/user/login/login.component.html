@@ -1,20 +1,22 @@
-<mat-card>
-  <mat-card-title>Creación de cuenta o inicio de Sesión</mat-card-title>
-  <mat-card-content>
-  	<div class="login-container" [formGroup]="loginForm">
-  	  <mat-form-field>
-  	  	<input matInput placeholder="Ingrese un e-mail" formControlName="email">
-         <mat-error *ngIf="loginForm?.get('email')?.invalid">{{getErrorMessage('email', 'email')}}</mat-error>
-  	  </mat-form-field>
-  	  <mat-form-field>
-  	  	<input matInput placeholder="Ingrese una contraseña" [type]="hide ? 'password' : 'text'" formControlName="password">
-        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-  	  </mat-form-field>
-  	</div>
-  </mat-card-content>
-  <mat-card-content>
-    <button mat-raised-button color="accent" (click)="signUp()">Crear Cuenta</button>
-    <mat-card-content><br>o digita tu usuario y contraseña e Inicia sesión:<br><br></mat-card-content>
-    <button mat-raised-button color="primary" (click)="login()">Iniciar Sesión</button>
-  </mat-card-content>  
-</mat-card>
+<div class="mat-card-cvr">
+  <mat-card class="login">
+    <mat-card-title>Creación de cuenta o inicio de Sesión</mat-card-title>
+    <mat-card-content>
+      <div class="login-container" [formGroup]="loginForm">
+        <mat-form-field>
+          <input id="login-email-main" matInput placeholder="Ingrese un e-mail" formControlName="email">
+          <mat-error *ngIf="loginForm?.get('email')?.invalid">{{getErrorMessage('email', 'email')}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input id="login-pass-main" matInput placeholder="Ingrese una contraseña" [type]="hide ? 'password' : 'text'" formControlName="password">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-content>
+      <button id="login-create" mat-raised-button color="accent" (click)="signUp()">Crear Cuenta</button>
+      <mat-card-content><br>o digita tu usuario y contraseña e Inicia sesión:<br><br></mat-card-content>
+      <button id="login-button" mat-raised-button color="primary" (click)="login()">Iniciar Sesión</button>
+    </mat-card-content>
+  </mat-card>
+</div>
